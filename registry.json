@@ -1,0 +1,3798 @@
+{
+  "componentRegistry": {
+    "layout": [
+      {
+        "import": "import CardStack from '@/components/cardStack/CardStack';",
+        "name": "CardStack",
+        "path": "@/components/cardStack/CardStack",
+        "description": "Adaptive layout component that displays children in a grid or carousel based on item count.",
+        "details": "Use for displaying collections of cards. Automatically switches between grid (1-4 items) and carousel (5+ items). Carousel offers auto-scroll or button controls (recommended: keep default buttons). Optional header supports centered or split layout (split: title left 60%, description right 40%, no tag/buttons).",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Features",
+              "minChars": 2,
+              "maxChars": 50
+            },
+            "description": {
+              "required": false,
+              "example": "Discover our products",
+              "minChars": 5,
+              "maxChars": 300
+            },
+            "tag": {
+              "required": false,
+              "example": "New",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          }
+        },
+        "propsSchema": {
+          "children": "React.ReactNode",
+          "mode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Card stack')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "titleClassName?": "string",
+          "descriptionClassName?": "string",
+          "tagClassName?": "string",
+          "buttonContainerClassName?": "string",
+          "buttonClassName?": "string",
+          "buttonTextClassName?": "string"
+        },
+        "usage": "<CardStack title=\"Features\" buttons={[{ text: 'View All', href: 'features' }]}>{/* Card components */}</CardStack>"
+      },
+      {
+        "import": "import TextBox from '@/components/Textbox';",
+        "name": "TextBox",
+        "path": "@/components/Textbox",
+        "description": "Flexible text composition component with animated title and description.",
+        "details": "Use for text content blocks with optional tag and up to 2 CTAs. Supports default (centered or left-aligned) or split layout (title left 60%, description right 40%, no tag/buttons). Text animations use ThemeProvider defaults.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": true,
+              "example": "Welcome to Our Platform",
+              "minChars": 2,
+              "maxChars": 100
+            },
+            "description": {
+              "required": true,
+              "example": "Discover amazing features and capabilities",
+              "minChars": 5,
+              "maxChars": 500
+            },
+            "tag": {
+              "required": false,
+              "example": "New",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          }
+        },
+        "propsSchema": {
+          "title": "string",
+          "description": "string",
+          "type?": "'entrance-slide' | 'reveal-blur' | 'background-highlight'",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "center?": "boolean (default: false)",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "duration?": "number (default: 1)",
+          "start?": "string (default: 'top 80%')",
+          "end?": "string (default: 'top 20%')",
+          "gradientColors?": "{ from: string, to: string }",
+          "children?": "React.ReactNode",
+          "className?": "string",
+          "titleClassName?": "string",
+          "descriptionClassName?": "string",
+          "tagClassName?": "string",
+          "buttonContainerClassName?": "string",
+          "buttonClassName?": "string",
+          "buttonTextClassName?": "string"
+        },
+        "usage": "<TextBox title=\"Welcome\" description=\"Get started with our platform today\" buttons={[{ text: 'Learn More', href: 'about' }]} center={true} />"
+      }
+    ],
+    "title": [
+      {
+        "import": "import TextAnimation from '@/components/text/TextAnimation';",
+        "name": "TextAnimation",
+        "path": "@/components/text/TextAnimation",
+        "description": "Unified scroll-triggered text animation component with three distinct animation types and two trigger variants.",
+        "details": "A versatile text animation component that offers three animation types, each with two trigger variants (trigger, words-trigger).",
+        "animationTypes": {
+          "entrance-slide": {
+            "description": "Scroll-synced text entrance effect where characters slide upward into view as the user scrolls.",
+            "details": "Use when you want text to feel like it's entering the viewport in sync with scroll. Each word or character fades and slides upward from below. Best for storytelling sections, hero copy, or progressive reveals tied to reading flow."
+          },
+          "reveal-blur": {
+            "description": "Scroll‑synced reveal where text sharpens from a blurred state as you scroll.",
+            "details": "Use for narrative sections where copy should emerge smoothly with the reader's progress. The effect scrubs with scroll: characters start blurred and gradually come into focus (optionally fading in)."
+          },
+          "background-highlight": {
+            "description": "Text that reveals or highlights progressively as the user scrolls.",
+            "details": "Use when you want text to animate with scroll position, revealing characters smoothly in sync with scroll movement. Great for storytelling sections, intros, or explanatory copy tied to scroll progress."
+          }
+        },
+        "triggerVariants": {
+          "trigger": "Character-by-character animation plays once on viewport entry - ideal for short impactful text like headlines and subheadlines",
+          "words-trigger": "Word-by-word animation on viewport entry - great for longer body text, paragraphs, and explanatory copy"
+        },
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": true,
+              "example": "This animation responds to scroll. Watch as the text comes to life."
+            }
+          }
+        },
+        "propsSchema": {
+          "type?": "'entrance-slide' | 'reveal-blur' | 'background-highlight'",
+          "title": "string",
+          "children?": "React.ReactNode",
+          "variant?": "'trigger' | 'words-trigger'",
+          "className?": "string",
+          "duration?": "number",
+          "stagger?": "number",
+          "start?": "string",
+          "end?": "string",
+          "ariaLabel?": "string",
+          "gradientColors?": "{ from: string, to: string }"
+        }
+      },
+      {
+        "import": "import TextNumberCount from '@/components/text/TextNumberCount';",
+        "name": "TextNumberCount",
+        "path": "@/components/text/TextNumberCount",
+        "description": "Animated number counter that increments smoothly from a start to an end value.",
+        "details": "Use for statistics, or metrics where a counting animation adds emphasis. Numbers animate on mount or when scrolled into view. Supports decimals, currency, and optional suffix/prefix.",
+        "constraints": {
+          "numberRules": {
+            "value": { "required": true, "example": 99.99 },
+            "startFrom": { "required": false, "example": 0 }
+          }
+        },
+        "propsSchema": {
+          "value": "number",
+          "startFrom?": "number",
+          "duration?": "number",
+          "format?": "Intl.NumberFormatOptions",
+          "locales?": "string",
+          "prefix?": "string",
+          "suffix?": "string",
+          "animateOnScroll?": "boolean",
+          "threshold?": "number",
+          "className?": "string"
+        }
+      }
+    ],
+    "button": [
+      {
+        "import": "import ButtonTextUnderline from '@/components/button/ButtonTextUnderline';",
+        "name": "ButtonTextUnderline",
+        "path": "@/components/button/ButtonTextUnderline",
+        "description": "Text-only button where an underline animates in on hover.",
+        "details": "Use for inline or minimal CTAs or links where you want the hover state to reveal affordance without altering color or layout. The underline appears smoothly under the label when hovered.",
+        "constraints": {
+          "textRules": {
+            "text": {
+              "required": true,
+              "example": "Learn more",
+              "minChars": 2,
+              "maxChars": 25
+            }
+          }
+        },
+        "propsSchema": {
+          "text": "string",
+          "onClick?": "() => void",
+          "href?": "string - External URLs open in new tab, internal values scroll to section",
+          "className?": "string",
+          "disabled?": "boolean (default: false)",
+          "ariaLabel?": "string",
+          "type?": "'button' | 'submit' | 'reset' (default: 'button')"
+        },
+        "usage": "<ButtonTextUnderline text=\"Learn more\" href=\"about\" />"
+      },
+      {
+        "import": "import ButtonSlideBackground from '@/components/button/ButtonSlideBackground';",
+        "name": "ButtonSlideBackground",
+        "path": "@/components/button/ButtonSlideBackground",
+        "description": "Button whose background color slides in from an edge on hover.",
+        "details": "Use for prominent CTAs where a directional fill adds emphasis. By default the background slides up from the bottom. Keep the label short; no multiline.",
+        "constraints": {
+          "textRules": {
+            "text": {
+              "required": true,
+              "example": "Reserve",
+              "minChars": 2,
+              "maxChars": 25
+            }
+          }
+        },
+        "propsSchema": {
+          "text": "string",
+          "onClick?": "() => void",
+          "href?": "string - External URLs open in new tab, internal values scroll to section",
+          "className?": "string",
+          "textClassName?": "string",
+          "hoverBgColor?": "string (default: 'after:bg-background')",
+          "textColor?": "string (default: 'text-white')",
+          "hoverTextColor?": "string (default: 'after:text-foreground')",
+          "disabled?": "boolean (default: false)",
+          "ariaLabel?": "string",
+          "type?": "'button' | 'submit' | 'reset' (default: 'button')"
+        },
+        "usage": "<ButtonSlideBackground text=\"Reserve\" href=\"https://example.com\" />"
+      },
+      {
+        "import": "import ButtonIconArrow from '@/components/button/ButtonIconArrow';",
+        "name": "ButtonIconArrow",
+        "path": "@/components/button/ButtonIconArrow",
+        "description": "Button with a trailing arrow icon that transforms on hover.",
+        "details": "Use for CTAs where a subtle icon transformation helps indicate forward navigation. The arrow icon transitions into a square on hover/focus. Keep label short and simple.",
+        "constraints": {
+          "textRules": {
+            "text": {
+              "required": true,
+              "example": "Button",
+              "minChars": 2,
+              "maxChars": 25
+            }
+          }
+        },
+        "propsSchema": {
+          "text": "string",
+          "onClick?": "() => void",
+          "href?": "string - External URLs open in new tab, internal values scroll to section",
+          "className?": "string",
+          "textClassName?": "string",
+          "iconClassName?": "string",
+          "disabled?": "boolean (default: false)",
+          "ariaLabel?": "string",
+          "type?": "'button' | 'submit' | 'reset' (default: 'button')"
+        },
+        "usage": "<ButtonIconArrow text=\"Continue\" href=\"next-section\" />"
+      },
+      {
+        "import": "import ButtonTextStagger from '@/components/button/ButtonTextStagger/ButtonTextStagger';",
+        "name": "ButtonTextStagger",
+        "path": "@/components/button/ButtonTextStagger/ButtonTextStagger",
+        "description": "CTA button with character stagger animation on hover.",
+        "details": "Use for primary or secondary CTAs where subtle text motion adds emphasis. On hover, the label's characters animate in sequence (stagger). Includes background styling.",
+        "constraints": {
+          "textRules": {
+            "text": {
+              "required": true,
+              "example": "Get Started",
+              "minChars": 2,
+              "maxChars": 25
+            }
+          }
+        },
+        "propsSchema": {
+          "text": "string",
+          "onClick?": "() => void",
+          "href?": "string - External URLs open in new tab, internal values scroll to section",
+          "className?": "string",
+          "bgClassName?": "string",
+          "textClassName?": "string",
+          "disabled?": "boolean (default: false)",
+          "ariaLabel?": "string",
+          "type?": "'button' | 'submit' | 'reset' (default: 'button')"
+        },
+        "usage": "<ButtonTextStagger text=\"Get Started\" href=\"https://example.com\" />"
+      },
+      {
+        "import": "import ButtonShiftHover from '@/components/button/ButtonShiftHover/ButtonShiftHover';",
+        "name": "ButtonShiftHover",
+        "path": "@/components/button/ButtonShiftHover/ButtonShiftHover",
+        "description": "CTA button where the label nudges upward on hover and a trailing dot fills from outline to solid.",
+        "details": "Use for primary or secondary CTAs that benefit from a gentle motion cue. Keep the label short and single‑line. The trailing dot is purely decorative and fills on hover.",
+        "constraints": {
+          "textRules": {
+            "text": {
+              "required": true,
+              "example": "Get Started",
+              "minChars": 2,
+              "maxChars": 25
+            }
+          }
+        },
+        "propsSchema": {
+          "text": "string",
+          "onClick?": "() => void",
+          "href?": "string - External URLs open in new tab, internal values scroll to section",
+          "className?": "string",
+          "bgClassName?": "string",
+          "textClassName?": "string",
+          "disabled?": "boolean (default: false)",
+          "ariaLabel?": "string",
+          "type?": "'button' | 'submit' | 'reset' (default: 'button')"
+        },
+        "usage": "<ButtonShiftHover text=\"Get Started\" href=\"pricing\" />"
+      },
+      {
+        "import": "import ButtonHoverMagnetic from '@/components/button/ButtonHoverMagnetic/ButtonHoverMagnetic';",
+        "name": "ButtonHoverMagnetic",
+        "path": "@/components/button/ButtonHoverMagnetic/ButtonHoverMagnetic",
+        "description": "CTA button that subtly follows the cursor with a magnetic hover effect.",
+        "details": "Use when you want a playful, high-affordance interaction. On hover, the button shifts toward the cursor and recenters on leave. Keep labels short; no multiline.",
+        "constraints": {
+          "textRules": {
+            "text": {
+              "required": true,
+              "example": "Button",
+              "minChars": 2,
+              "maxChars": 25
+            }
+          }
+        },
+        "propsSchema": {
+          "text": "string",
+          "onClick?": "() => void",
+          "href?": "string - External URLs open in new tab, internal values scroll to section",
+          "className?": "string",
+          "textClassName?": "string",
+          "strengthFactor?": "number (default: 20)",
+          "disabled?": "boolean (default: false)",
+          "ariaLabel?": "string",
+          "type?": "'button' | 'submit' | 'reset' (default: 'button')"
+        },
+        "usage": "<ButtonHoverMagnetic text=\"Button\" href=\"contact\" />"
+      }
+    ],
+    "form": [
+      {
+        "import": "import Input from '@/components/form/Input';",
+        "name": "Input",
+        "path": "@/components/form/Input",
+        "description": "Styled text input field with secondary-button styling and rounded-theme borders.",
+        "details": "Use for text, email, password, and other input types in forms. Features secondary-button background styling, placeholder text with 75% opacity, and focus states. Includes disabled state with reduced opacity and cursor styling. Supports all standard HTML input types.",
+        "constraints": {
+          "textRules": {
+            "placeholder": {
+              "required": false,
+              "example": "Enter your name",
+              "minChars": 2,
+              "maxChars": 50
+            }
+          }
+        },
+        "propsSchema": {
+          "value": "string (required)",
+          "onChange": "(value: string) => void (required)",
+          "type?": "string (default: 'text')",
+          "placeholder?": "string",
+          "required?": "boolean (default: false)",
+          "disabled?": "boolean (default: false)",
+          "ariaLabel?": "string",
+          "className?": "string"
+        },
+        "usage": "<Input value={name} onChange={(value) => setName(value)} type=\"text\" placeholder=\"Name\" required />"
+      },
+      {
+        "import": "import Textarea from '@/components/form/Textarea';",
+        "name": "Textarea",
+        "path": "@/components/form/Textarea",
+        "description": "Styled textarea field with secondary-button styling and rounded-theme-capped borders.",
+        "details": "Use for multi-line text input in forms. Features secondary-button background styling, customizable row height, resize disabled, and focus states. Includes disabled state with reduced opacity. Ideal for messages, comments, or longer text content.",
+        "constraints": {
+          "textRules": {
+            "placeholder": {
+              "required": false,
+              "example": "Type your message...",
+              "minChars": 2,
+              "maxChars": 100
+            }
+          }
+        },
+        "propsSchema": {
+          "value": "string (required)",
+          "onChange": "(value: string) => void (required)",
+          "placeholder?": "string",
+          "rows?": "number (default: 5)",
+          "required?": "boolean (default: false)",
+          "disabled?": "boolean (default: false)",
+          "ariaLabel?": "string",
+          "className?": "string"
+        },
+        "usage": "<Textarea value={message} onChange={(value) => setMessage(value)} placeholder=\"Type your message...\" rows={5} required />"
+      },
+      {
+        "import": "import EmailSignupForm from '@/components/form/EmailSignupForm';",
+        "name": "EmailSignupForm",
+        "path": "@/components/form/EmailSignupForm",
+        "description": "Compact email signup form with inline input and submit button in card container.",
+        "details": "Use for newsletter signups, waitlists, or email collection. Features inline layout with email input on left and submit button on right, all wrapped in a card with rounded-theme borders and 1-unit padding. Input is flex-1 to fill available space. Button uses ThemeProvider's defaultButtonVariant. Returns email string on submit.",
+        "constraints": {
+          "textRules": {
+            "inputPlaceholder": {
+              "required": false,
+              "default": "Enter your email",
+              "example": "Your email address",
+              "minChars": 5,
+              "maxChars": 50
+            },
+            "buttonText": {
+              "required": false,
+              "default": "Sign Up",
+              "example": "Subscribe",
+              "minChars": 2,
+              "maxChars": 15
+            }
+          }
+        },
+        "propsSchema": {
+          "inputPlaceholder?": "string (default: 'Enter your email')",
+          "buttonText?": "string (default: 'Sign Up')",
+          "onSubmit?": "(email: string) => void",
+          "className?": "string",
+          "inputClassName?": "string",
+          "buttonClassName?": "string",
+          "buttonTextClassName?": "string"
+        },
+        "usage": "<EmailSignupForm inputPlaceholder=\"Your email\" buttonText=\"Subscribe\" onSubmit={(email) => console.log(email)} />"
+      },
+      {
+        "import": "import ContactForm from '@/components/form/ContactForm';",
+        "name": "ContactForm",
+        "path": "@/components/form/ContactForm",
+        "description": "Complete contact form component with tag, animated title and description, email signup form, and terms text.",
+        "details": "Use for email signup sections with full context and branding. Features Tag component, TextAnimation for title and description using ThemeProvider defaults, EmailSignupForm for input, and terms/conditions text below. Supports centered layout for hero-style presentation. Returns email string on submit.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": true,
+              "example": "Join our newsletter",
+              "minChars": 4,
+              "maxChars": 60
+            },
+            "description": {
+              "required": true,
+              "example": "Get the latest updates and exclusive content delivered to your inbox",
+              "minChars": 10,
+              "maxChars": 200
+            },
+            "tag": {
+              "required": true,
+              "example": "Newsletter",
+              "minChars": 2,
+              "maxChars": 30
+            },
+            "inputPlaceholder": {
+              "required": false,
+              "default": "Enter your email",
+              "example": "Your email address",
+              "minChars": 5,
+              "maxChars": 50
+            },
+            "buttonText": {
+              "required": false,
+              "default": "Sign Up",
+              "example": "Subscribe",
+              "minChars": 2,
+              "maxChars": 15
+            },
+            "termsText": {
+              "required": false,
+              "default": "By clicking Sign Up you're confirming that you agree with our Terms and Conditions.",
+              "example": "We respect your privacy. Unsubscribe anytime.",
+              "minChars": 10,
+              "maxChars": 200
+            }
+          }
+        },
+        "propsSchema": {
+          "title": "string (required)",
+          "description": "string (required)",
+          "tag": "string (required)",
+          "tagIcon?": "LucideIcon",
+          "inputPlaceholder?": "string (default: 'Enter your email')",
+          "buttonText?": "string (default: 'Sign Up')",
+          "termsText?": "string (default: 'By clicking Sign Up you're confirming that you agree with our Terms and Conditions.')",
+          "onSubmit?": "(email: string) => void",
+          "centered?": "boolean (default: false)",
+          "className?": "string",
+          "tagClassName?": "string",
+          "titleClassName?": "string",
+          "descriptionClassName?": "string",
+          "formWrapperClassName?": "string",
+          "formClassName?": "string",
+          "inputClassName?": "string",
+          "buttonClassName?": "string",
+          "buttonTextClassName?": "string",
+          "termsClassName?": "string"
+        },
+        "usage": "<ContactForm title=\"Join our newsletter\" description=\"Get updates\" tag=\"Newsletter\" onSubmit={(email) => console.log(email)} />"
+      }
+    ],
+    "navbar": [
+      {
+        "import": "import NavbarStyleApple from '@/components/navbar/NavbarStyleApple/NavbarStyleApple';",
+        "name": "NavbarStyleApple",
+        "path": "@/components/navbar/NavbarStyleApple/NavbarStyleApple",
+        "description": "Minimal Apple-style navigation bar with brand/logo on the left and inline navigation links aligned right.",
+        "details": "Use for clean, product-focused websites where the navbar should be subtle and not distract from main content. Keeps typography and spacing minimal with a focus on elegance and clarity. Supports both internal anchor links (scrolls to section) and external URLs (opens in new tab).",
+        "constraints": {
+          "minLinks": 3,
+          "maxLinks": 7,
+          "preferredCount": 5,
+          "brandRules": {
+            "required": false,
+            "minChars": 2,
+            "maxChars": 20,
+            "example": "Webild",
+            "fallbackBehavior": "Shows brandName text when logoSrc is not provided"
+          },
+          "linkRules": {
+            "name": { "required": true, "minChars": 2, "maxChars": 15, "example": "About" },
+            "id": {
+              "required": true,
+              "format": "section-id | url",
+              "examples": ["about", "services", "https://github.com", "www.example.com"],
+              "behavior": "Internal IDs scroll to section, URLs open in new tab"
+            }
+          }
+        },
+        "propsSchema": {
+          "navItems": "NavItem[]",
+          "logoSrc?": "string",
+          "logoAlt?": "string (default: '')",
+          "brandName?": "string (default: 'Webild')"
+        }
+      },
+      {
+        "import": "import NavbarLayoutFloatingInline from '@/components/navbar/NavbarLayoutFloatingInline';",
+        "name": "NavbarLayoutFloatingInline",
+        "path": "@/components/navbar/NavbarLayoutFloatingInline",
+        "description": "Floating inline navbar with centered links, left-aligned logo, and right-aligned call-to-action button.",
+        "details": "Use for desktop-focused layouts where navigation is always visible. The navbar floats with rounded edges, logo sits on the left, links are inline in the center, and an optional CTA button appears on the right.",
+        "constraints": {
+          "minLinks": 3,
+          "maxLinks": 6,
+          "preferredCount": 4,
+          "brandRules": {
+            "required": false,
+            "minChars": 2,
+            "maxChars": 20,
+            "example": "Webild",
+            "fallbackBehavior": "Shows brandName text when logoSrc is not provided"
+          },
+          "buttonRules": {
+            "text": { "required": false, "minChars": 2, "maxChars": 24, "example": "Join Now" },
+            "variant": {
+              "required": false,
+              "options": ["hover-magnetic", "icon-arrow", "shift-hover", "slide-background", "text-stagger", "text-underline"],
+              "default": "text-stagger"
+            }
+          },
+          "linkRules": {
+            "name": { "required": true, "minChars": 2, "maxChars": 15, "example": "About" },
+            "id": {
+              "required": true,
+              "format": "section-id | url",
+              "examples": ["about", "services", "https://github.com", "www.example.com"],
+              "behavior": "Internal IDs scroll to section, URLs open in new tab"
+            }
+          }
+        },
+        "propsSchema": {
+          "navItems": "NavItem[]",
+          "logoSrc?": "string",
+          "logoAlt?": "string (default: '')",
+          "brandName?": "string (default: 'Webild')",
+          "buttonText?": "string (default: 'Join Now')",
+          "buttonVariant?": "CTAButtonVariant (default: 'text-stagger')",
+          "onButtonClick?": "() => void (default: () => {})",
+          "className?": "string (default: '')",
+          "navItemClassName?": "string (default: '')",
+          "buttonClassName?": "string (default: '')",
+          "buttonTextClassName?": "string (default: '')"
+        }
+      },
+      {
+        "import": "import NavbarLayoutFloatingOverlay from '@/components/navbar/NavbarLayoutFloatingOverlay/NavbarLayoutFloatingOverlay';",
+        "name": "NavbarLayoutFloatingOverlay",
+        "path": "@/components/navbar/NavbarLayoutFloatingOverlay/NavbarLayoutFloatingOverlay",
+        "description": "Floating rounded navbar with right‑side CTA and a circular menu button. Clicking the button opens a rounded overlay panel with the site menu.",
+        "details": "Use for minimalist headers where the primary navigation lives in an overlay. Default state shows logo at left, optional CTA chip and a menu icon at right. The overlay slides in and lists links vertically with an optional title and close control.",
+        "constraints": {
+          "minLinks": 2,
+          "maxLinks": 8,
+          "preferredCount": 5,
+          "brandRules": {
+            "required": false,
+            "minChars": 2,
+            "maxChars": 20,
+            "example": "Webild",
+            "fallbackBehavior": "Shows brandName text when logoSrc is not provided"
+          },
+          "buttonRules": {
+            "text": { "required": false, "minChars": 2, "maxChars": 24, "example": "Join Now" },
+            "variant": {
+              "required": false,
+              "options": ["hover-magnetic", "icon-arrow", "shift-hover", "slide-background", "text-stagger", "text-underline"],
+              "default": "text-stagger"
+            }
+          },
+          "linkRules": {
+            "name": { "required": true, "minChars": 2, "maxChars": 15, "example": "About" },
+            "id": {
+              "required": true,
+              "format": "section-id | url",
+              "examples": ["about", "services", "https://github.com", "www.example.com"],
+              "behavior": "Internal IDs scroll to section, URLs open in new tab"
+            }
+          }
+        },
+        "propsSchema": {
+          "navItems": "NavItem[]",
+          "logoSrc?": "string",
+          "logoAlt?": "string (default: '')",
+          "brandName?": "string (default: 'Webild')",
+          "buttonText?": "string (default: 'Join Now')",
+          "buttonVariant?": "CTAButtonVariant (default: 'text-stagger')",
+          "onButtonClick?": "() => void (default: () => {})",
+          "buttonClassName?": "string (default: '')",
+          "buttonTextClassName?": "string (default: '')"
+        }
+      },
+      {
+        "import": "import NavbarStyleMinimal from '@/components/navbar/NavbarStyleMinimal';",
+        "name": "NavbarStyleMinimal",
+        "path": "@/components/navbar/NavbarStyleMinimal",
+        "description": "A minimal navbar with left-aligned logo and optional right-aligned call-to-action button.",
+        "details": "Use when a simple, distraction-free navigation is required. No inline navigation links are shown, only a logo and an optional CTA button on the right.",
+        "constraints": {
+          "brandRules": {
+            "required": false,
+            "minChars": 2,
+            "maxChars": 20,
+            "example": "Webild",
+            "fallbackBehavior": "Shows brandName text when logoSrc is not provided"
+          },
+          "buttonRules": {
+            "text": { "required": false, "minChars": 2, "maxChars": 24, "example": "Join Now" },
+            "variant": {
+              "required": false,
+              "options": ["hover-magnetic", "icon-arrow", "shift-hover", "slide-background", "text-stagger", "text-underline"],
+              "default": "text-stagger"
+            }
+          }
+        },
+        "propsSchema": {
+          "logoSrc?": "string",
+          "logoAlt?": "string (default: '')",
+          "brandName?": "string (default: 'Webild')",
+          "buttonText?": "string (default: 'Join Now')",
+          "buttonVariant?": "CTAButtonVariant (default: 'text-stagger')",
+          "onButtonClick?": "() => void (default: () => {})",
+          "className?": "string (default: '')",
+          "buttonClassName?": "string (default: '')",
+          "buttonTextClassName?": "string (default: '')"
+        }
+      }
+    ]
+  },
+  "sectionRegistry": {
+    "hero": [
+      {
+        "import": "import HeroBillboard from '@/components/sections/hero/HeroBillboard';",
+        "name": "HeroBillboard",
+        "path": "@/components/sections/hero/HeroBillboard",
+        "description": "Full-width hero section with centered text content, optional tag, buttons, and image/video media.",
+        "details": "Use for impactful landing page hero sections. Features centered title and description with TextBox animations, optional tag with icon, up to 2 CTA buttons, and support for both image and video backgrounds. Media wrapper always renders for consistent layout.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": true,
+              "example": "Welcome to Our Platform",
+              "minChars": 2,
+              "maxChars": 40
+            },
+            "description": {
+              "required": true,
+              "example": "Create beautiful, responsive web experiences",
+              "minChars": 5,
+              "maxChars": 200
+            },
+            "tag": {
+              "required": false,
+              "example": "New Release",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "mediaRules": {
+            "imageSrc": {
+              "required": false,
+              "example": "/hero-image.jpg",
+              "note": "Supports external URLs with unoptimized prop"
+            },
+            "videoSrc": {
+              "required": false,
+              "example": "/hero-video.mp4",
+              "note": "Takes precedence over imageSrc if both provided"
+            },
+            "imageAlt": {
+              "required": false,
+              "example": "Hero background",
+              "note": "Empty string marks image as decorative (aria-hidden)"
+            }
+          },
+          "buttonRules": {
+            "maxButtons": 2,
+            "structure": {
+              "text": "string - Button label (required)",
+              "href": "string - Link destination (optional). External URLs (https://, http://, www.) open in new tab. Internal values (e.g., 'about', 'contact') scroll to #about, #contact sections",
+              "onClick": "() => void - Additional click handler (optional)",
+              "props": "Partial<ButtonPropsForVariant> - Additional button props like className, textClassName (optional)"
+            },
+            "examples": [
+              "{ text: 'Get Started', href: 'https://example.com' }",
+              "{ text: 'Learn More', href: 'about' }",
+              "{ text: 'Contact', href: 'contact', onClick: () => console.log('clicked') }"
+            ],
+            "note": "Button variant is controlled by ThemeProvider's defaultButtonVariant. Border radius is controlled by ThemeProvider's borderRadius (options: 'sharp', 'rounded', 'soft', 'pill'). All sections should be wrapped in a single ThemeProvider at the app/page level to maintain consistent styling across the entire site."
+          }
+        },
+        "propsSchema": {
+          "title": "string",
+          "description": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "imageSrc?": "string",
+          "videoSrc?": "string",
+          "imageAlt?": "string (default: '')",
+          "videoAriaLabel?": "string (default: 'Hero video')",
+          "ariaLabel?": "string (default: 'Hero section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "textBoxClassName?": "string",
+          "titleClassName?": "string",
+          "descriptionClassName?": "string",
+          "tagClassName?": "string",
+          "buttonContainerClassName?": "string",
+          "buttonClassName?": "string",
+          "buttonTextClassName?": "string",
+          "mediaWrapperClassName?": "string",
+          "imageClassName?": "string"
+        },
+        "usage": "// Wrap entire app/page in ThemeProvider\n<ThemeProvider defaultButtonVariant=\"text-stagger\" defaultTextAnimation=\"entrance-slide\" borderRadius=\"rounded\">\n  <HeroBillboard \n    title=\"Welcome to Our Platform\" \n    description=\"Create beautiful, responsive web experiences\" \n    tag=\"New Release\" \n    imageSrc=\"/hero.jpg\" \n    buttons={[{ text: 'Get Started', href: 'https://example.com' }, { text: 'Learn More', href: 'about' }]} \n  />\n  {/* Other sections */}\n</ThemeProvider>"
+      },
+      {
+        "import": "import HeroSplit from '@/components/sections/hero/HeroSplit';",
+        "name": "HeroSplit",
+        "path": "@/components/sections/hero/HeroSplit",
+        "description": "Split-layout hero section with text content on one side and image/video on the other, with responsive centering.",
+        "details": "Use for hero sections where visual content and text have equal weight. Features split layout with configurable image position (left/right), responsive design that centers content below lg breakpoint, optional tag with icon, and up to 2 CTA buttons. Text automatically centers on mobile and aligns left on desktop.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": true,
+              "example": "Build Better Products",
+              "minChars": 2,
+              "maxChars": 40
+            },
+            "description": {
+              "required": true,
+              "example": "Create exceptional user experiences with our design system",
+              "minChars": 5,
+              "maxChars": 200
+            },
+            "tag": {
+              "required": false,
+              "example": "New Release",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "mediaRules": {
+            "imageSrc": {
+              "required": false,
+              "example": "/hero-image.jpg",
+              "note": "Supports external URLs with unoptimized prop"
+            },
+            "videoSrc": {
+              "required": false,
+              "example": "/hero-video.mp4",
+              "note": "Takes precedence over imageSrc if both provided"
+            },
+            "imageAlt": {
+              "required": false,
+              "example": "Product showcase",
+              "note": "Empty string marks image as decorative (aria-hidden)"
+            },
+            "imagePosition": {
+              "required": false,
+              "options": ["left", "right"],
+              "default": "right"
+            }
+          },
+          "buttonRules": {
+            "maxButtons": 2,
+            "structure": {
+              "text": "string - Button label (required)",
+              "href": "string - Link destination (optional). External URLs (https://, http://, www.) open in new tab. Internal values (e.g., 'about', 'contact') scroll to #about, #contact sections",
+              "onClick": "() => void - Additional click handler (optional)",
+              "props": "Partial<ButtonPropsForVariant> - Additional button props like className, textClassName (optional)"
+            },
+            "examples": [
+              "{ text: 'Get Started', href: 'https://example.com' }",
+              "{ text: 'Learn More', href: 'about' }",
+              "{ text: 'Contact', href: 'contact', onClick: () => console.log('clicked') }"
+            ],
+            "note": "Button variant is controlled by ThemeProvider's defaultButtonVariant. Border radius is controlled by ThemeProvider's borderRadius (options: 'sharp', 'rounded', 'soft', 'pill'). Buttons have px-8 padding and text-base size by default in HeroSplit. All sections should be wrapped in a single ThemeProvider at the app/page level to maintain consistent styling across the entire site."
+          }
+        },
+        "propsSchema": {
+          "title": "string",
+          "description": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "imageSrc?": "string",
+          "videoSrc?": "string",
+          "imageAlt?": "string (default: '')",
+          "videoAriaLabel?": "string (default: 'Hero video')",
+          "ariaLabel?": "string (default: 'Hero section')",
+          "imagePosition?": "'left' | 'right' (default: 'right')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "textBoxClassName?": "string",
+          "titleClassName?": "string",
+          "descriptionClassName?": "string",
+          "tagClassName?": "string",
+          "buttonContainerClassName?": "string",
+          "buttonClassName?": "string",
+          "buttonTextClassName?": "string",
+          "mediaWrapperClassName?": "string",
+          "imageClassName?": "string"
+        },
+        "usage": "// Wrap entire app/page in ThemeProvider\n<ThemeProvider defaultButtonVariant=\"text-stagger\" defaultTextAnimation=\"entrance-slide\" borderRadius=\"rounded\">\n  <HeroSplit \n    title=\"Build Better Products\" \n    description=\"Create exceptional user experiences with our design system\" \n    imagePosition=\"left\" \n    imageSrc=\"/hero.jpg\" \n    buttons={[{ text: 'Start Building', href: 'https://example.com' }, { text: 'View Demo', href: 'demo' }]} \n  />\n  {/* Other sections */}\n</ThemeProvider>"
+      }
+    ],
+    "about": [
+      {
+        "import": "import SplitAbout from '@/components/sections/about/SplitAbout';",
+        "name": "SplitAbout",
+        "path": "@/components/sections/about/SplitAbout",
+        "description": "Split-layout about section with bullet points on one side and image/video on the other.",
+        "details": "Use for about sections showcasing features or benefits with visual support. Features responsive split layout with configurable image position (left/right), bullet points with optional icons, title, and description. Image side takes 60% width on desktop (70% on 2xl), text takes 40% (30% on 2xl). Both sides have card styling with theme border radius.",
+        "constraints": {
+          "bulletPointRules": {
+            "structure": {
+              "title": "string - Bullet point heading (required)",
+              "description": "string - Bullet point text (required)",
+              "icon": "LucideIcon - Optional icon displayed above title"
+            },
+            "note": "Bullet points are separated by horizontal dividers. Border radius controlled by ThemeProvider's borderRadius (options: 'sharp', 'rounded', 'soft', 'pill'). All sections should be wrapped in a single ThemeProvider at the app/page level."
+          },
+          "mediaRules": {
+            "imageSrc": {
+              "required": false,
+              "example": "/about-image.jpg",
+              "note": "Supports external URLs"
+            },
+            "videoSrc": {
+              "required": false,
+              "example": "/about-video.mp4",
+              "note": "Takes precedence over imageSrc if both provided"
+            },
+            "imageAlt": {
+              "required": false,
+              "example": "About us",
+              "note": "Empty string marks image as decorative (aria-hidden)"
+            }
+          }
+        },
+        "propsSchema": {
+          "bulletPoints": "Array<{ title: string, description: string, icon?: LucideIcon }>",
+          "imageSrc?": "string",
+          "videoSrc?": "string",
+          "imageAlt?": "string (default: '')",
+          "videoAriaLabel?": "string (default: 'About section video')",
+          "ariaLabel?": "string (default: 'About section')",
+          "imagePosition?": "'left' | 'right' (default: 'right')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "contentClassName?": "string",
+          "bulletPointClassName?": "string",
+          "bulletTitleClassName?": "string",
+          "bulletDescriptionClassName?": "string",
+          "mediaWrapperClassName?": "string",
+          "imageClassName?": "string"
+        },
+        "usage": "// Wrap in ThemeProvider\n<ThemeProvider defaultButtonVariant=\"text-stagger\" defaultTextAnimation=\"entrance-slide\" borderRadius=\"rounded\">\n  <SplitAbout bulletPoints={[{ title: 'Innovation', description: 'We push boundaries', icon: Lightbulb }, { title: 'Quality', description: 'Excellence in every detail' }]} imageSrc=\"/about.jpg\" />\n</ThemeProvider>"
+      },
+      {
+        "import": "import TextSplitAbout from '@/components/sections/about/TextSplitAbout';",
+        "name": "TextSplitAbout",
+        "path": "@/components/sections/about/TextSplitAbout",
+        "description": "Split-layout about section with large heading on left and multiple description paragraphs with optional buttons on right.",
+        "details": "Use for about sections with prominent messaging and optional CTA. Features responsive split layout with large animated heading (7xl) on left, multiple description paragraphs with optional buttons on right. Each description text animates independently. Supports up to 2 buttons with primary/secondary styling, optional border separator below content. Button variant controlled by ThemeProvider, text animations use theme defaults.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": true,
+              "example": "About Us",
+              "minChars": 2,
+              "maxChars": 30
+            },
+            "description": {
+              "required": true,
+              "type": "array of strings",
+              "example": ["We're a team passionate about creating exceptional digital experiences", "Our mission is to empower designers and developers"],
+              "minChars": 10,
+              "maxChars": 300,
+              "note": "Each description paragraph should be 10-300 characters"
+            }
+          },
+          "buttonRules": {
+            "maxButtons": 2,
+            "structure": {
+              "text": "string - Button label (required)",
+              "href": "string - Link destination (optional)",
+              "onClick": "() => void - Click handler (optional)",
+              "props": "Partial<ButtonPropsForVariant> - Additional button props (optional)"
+            },
+            "note": "Button variant controlled by ThemeProvider's defaultButtonVariant. Border radius controlled by ThemeProvider's borderRadius. All sections should be wrapped in a single ThemeProvider at the app/page level."
+          }
+        },
+        "propsSchema": {
+          "title": "string",
+          "description": "string[]",
+          "buttons?": "Array<{ text: string, onClick?: () => void, href?: string, props?: Partial<ButtonPropsForVariant<CTAButtonVariant>> }>",
+          "showBorder?": "boolean (default: false)",
+          "ariaLabel?": "string (default: 'About section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "titleClassName?": "string",
+          "descriptionClassName?": "string",
+          "buttonContainerClassName?": "string",
+          "buttonClassName?": "string",
+          "buttonTextClassName?": "string"
+        },
+        "usage": "// Wrap in ThemeProvider\n<ThemeProvider defaultButtonVariant=\"shift-hover\" defaultTextAnimation=\"entrance-slide\" borderRadius=\"rounded\">\n  <TextSplitAbout title=\"About Us\" description={[\"We create amazing experiences\", \"Our mission is to empower teams\"]} showBorder={true} buttons={[{ text: 'Learn More', href: 'about' }]} />\n</ThemeProvider>"
+      },
+      {
+        "import": "import TextAbout from '@/components/sections/about/TextAbout';",
+        "name": "TextAbout",
+        "path": "@/components/sections/about/TextAbout",
+        "description": "Centered about section with large animated text and optional buttons below.",
+        "details": "Use for simple, impactful about statements. Features centered large text (2xl on mobile, 5xl on desktop) with TextAnimation using words-trigger variant, and up to 2 optional CTA buttons with primary/secondary styling. Button variant controlled by ThemeProvider, text animations use theme defaults.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": true,
+              "example": "We build products that empower teams to create exceptional digital experiences",
+              "minChars": 10,
+              "maxChars": 200
+            }
+          },
+          "buttonRules": {
+            "maxButtons": 2,
+            "structure": {
+              "text": "string - Button label (required)",
+              "href": "string - Link destination (optional)",
+              "onClick": "() => void - Click handler (optional)",
+              "props": "Partial<ButtonPropsForVariant> - Additional button props (optional)"
+            },
+            "note": "Button variant controlled by ThemeProvider's defaultButtonVariant. Border radius controlled by ThemeProvider's borderRadius. All sections should be wrapped in a single ThemeProvider at the app/page level."
+          }
+        },
+        "propsSchema": {
+          "title": "string",
+          "buttons?": "Array<{ text: string, onClick?: () => void, href?: string, props?: Partial<ButtonPropsForVariant<CTAButtonVariant>> }>",
+          "ariaLabel?": "string (default: 'About section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "titleClassName?": "string",
+          "buttonContainerClassName?": "string",
+          "buttonClassName?": "string",
+          "buttonTextClassName?": "string"
+        },
+        "usage": "// Wrap in ThemeProvider\n<ThemeProvider defaultButtonVariant=\"icon-arrow\" defaultTextAnimation=\"reveal-blur\" borderRadius=\"soft\">\n  <TextAbout title=\"We create exceptional digital experiences\" buttons={[{ text: 'Get Started', href: 'https://example.com' }, { text: 'Learn More', href: 'about' }]} />\n</ThemeProvider>"
+      }
+    ],
+    "feature": [
+      {
+        "import": "import FeatureCardOne from '@/components/sections/feature/FeatureCardOne';",
+        "name": "FeatureCardOne",
+        "path": "@/components/sections/feature/FeatureCardOne",
+        "description": "Adaptive feature section with image/video-based cards in a grid or carousel layout.",
+        "details": "Use for visually-rich feature showcases with images or videos. Each card displays media (image/video), title, description, and optional button. Automatically switches between grid (1-4 items) and carousel (5+ items). Carousel offers auto-scroll or button controls (recommended: keep default buttons for better UX). Optional header with title, description, tag, and buttons. Header supports centered or split layout (split: title left 60%, description right 40%, no tag/buttons).",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Our Features",
+              "minChars": 2,
+              "maxChars": 35
+            },
+            "description": {
+              "required": false,
+              "example": "Discover the tools and capabilities that make our platform powerful",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Features",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "featureCardRules": {
+            "title": {
+              "required": true,
+              "example": "Advanced Analytics",
+              "minChars": 2,
+              "maxChars": 35
+            },
+            "description": {
+              "required": true,
+              "example": "Get detailed insights into your business performance",
+              "minChars": 10,
+              "maxChars": 250
+            }
+          }
+        },
+        "propsSchema": {
+          "features": "Array<{ title: string, description: string, button?: ButtonConfig } & ({ imageSrc: string, imageAlt?: string } | { videoSrc: string, videoAriaLabel?: string })>",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Feature section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "imageClassName?": "string",
+          "videoClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "cardTitleClassName?": "string",
+          "cardDescriptionClassName?": "string",
+          "cardButtonClassName?": "string",
+          "cardButtonTextClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string"
+        },
+        "usage": "<FeatureCardOne features={[{ title: 'Analytics', description: 'Get insights', imageSrc: '/feature.jpg', button: { text: 'Learn More', href: '#' } }]} title=\"Features\" />"
+      },
+      {
+        "import": "import FeatureCardTwo from '@/components/sections/feature/FeatureCardTwo';",
+        "name": "FeatureCardTwo",
+        "path": "@/components/sections/feature/FeatureCardTwo",
+        "description": "Adaptive feature section with icon-based cards for text-focused features.",
+        "details": "Use when you don't need images but want visual appeal with icons. Each card displays an icon box, title, description, and optional button. Automatically switches between grid (1-4 items) and carousel (5+ items). Carousel offers auto-scroll or button controls (recommended: keep default buttons for better UX). Optional header with title, description, tag, and buttons. Header supports default centered or split layout (split: title left 60%, description right 40%, no tag/buttons).",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Our Features",
+              "minChars": 2,
+              "maxChars": 35
+            },
+            "description": {
+              "required": false,
+              "example": "Discover what makes us different",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Features",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "featureCardRules": {
+            "title": {
+              "required": true,
+              "example": "Advanced Analytics",
+              "minChars": 2,
+              "maxChars": 35
+            },
+            "description": {
+              "required": true,
+              "example": "Get detailed insights into your business performance",
+              "minChars": 10,
+              "maxChars": 250
+            }
+          }
+        },
+        "propsSchema": {
+          "features": "Array<{ title: string, description: string, icon: LucideIcon, button?: ButtonConfig }>",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Feature section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "iconClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "cardTitleClassName?": "string",
+          "cardDescriptionClassName?": "string",
+          "cardButtonClassName?": "string",
+          "cardButtonTextClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string"
+        },
+        "usage": "<FeatureCardTwo features={[{ title: 'Analytics', description: 'Track performance', icon: Zap, button: { text: 'Learn More', href: '#' } }]} title=\"Features\" />"
+      },
+      {
+        "import": "import FeatureCardThree from '@/components/sections/feature/featureCardThree/FeatureCardThree';",
+        "name": "FeatureCardThree",
+        "path": "@/components/sections/feature/featureCardThree/FeatureCardThree",
+        "description": "Adaptive feature section with hover-reveal cards displaying numbered features with images.",
+        "details": "Use for interactive feature showcases with hover effects. Each card displays a numbered ID badge that flips to an info icon on hover, image background, title, and description that reveals with a slide-up background animation. Automatically switches between grid (1-4 items) and carousel (5+ items). Carousel offers auto-scroll or button controls (recommended: keep default buttons for better UX). Optional header with title, description, tag, and buttons. Header supports centered or split layout (split: title left 60%, description right 40%, no tag/buttons).",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Our Features",
+              "minChars": 2,
+              "maxChars": 35
+            },
+            "description": {
+              "required": false,
+              "example": "Discover what makes us different",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Features",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "featureCardRules": {
+            "id": {
+              "required": true,
+              "example": "01",
+              "minChars": 1,
+              "maxChars": 3,
+              "note": "Displayed in the flip badge"
+            },
+            "title": {
+              "required": true,
+              "example": "Advanced Analytics",
+              "minChars": 2,
+              "maxChars": 35
+            },
+            "description": {
+              "required": true,
+              "example": "Get detailed insights into your business performance",
+              "minChars": 10,
+              "maxChars": 250
+            }
+          },
+          "mediaRules": {
+            "imageSrc": {
+              "required": true,
+              "example": "/feature.jpg",
+              "note": "Supports external URLs with unoptimized prop"
+            },
+            "imageAlt": {
+              "required": false,
+              "example": "Feature background",
+              "note": "Empty string marks image as decorative (aria-hidden)"
+            }
+          }
+        },
+        "propsSchema": {
+          "features": "Array<{ id: string, title: string, description: string, imageSrc: string, imageAlt?: string }>",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Feature section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "cardTitleClassName?": "string",
+          "cardDescriptionClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string",
+          "itemContentClassName?": "string"
+        },
+        "usage": "<FeatureCardThree features={[{ id: '01', title: 'Analytics', description: 'Track performance with detailed insights', imageSrc: '/feature.jpg' }]} title=\"Features\" />"
+      }
+    ],
+    "product": [
+      {
+        "import": "import ProductCardOne from '@/components/sections/product/ProductCardOne';",
+        "name": "ProductCardOne",
+        "path": "@/components/sections/product/ProductCardOne",
+        "description": "Simple product card showing name, price, and arrow icon for viewing details.",
+        "details": "Use for minimal product displays focused on browsing. Layout: Image (top) → Name (small text) → Price (large text) + Arrow Icon Button (right). The arrow button indicates 'view details' action. No additional product information displayed. Best for product galleries where users click through to detail pages. Each card has favorite button overlay on image, image scales 105% on hover, and arrow rotates 45deg on hover. Does NOT show: brand name, ratings, quantity controls.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Featured Products",
+              "minChars": 2,
+              "maxChars": 35
+            },
+            "description": {
+              "required": false,
+              "example": "Discover our latest collection of premium products",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "New Arrivals",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "productCardRules": {
+            "id": {
+              "required": true,
+              "example": "1",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "name": {
+              "required": true,
+              "example": "Eclipse Motion Pro",
+              "minChars": 2,
+              "maxChars": 50
+            },
+            "price": {
+              "required": true,
+              "example": "$150",
+              "minChars": 1,
+              "maxChars": 20
+            }
+          },
+          "mediaRules": {
+            "imageSrc": {
+              "required": true,
+              "example": "/product.jpg",
+              "note": "Supports external URLs with unoptimized prop"
+            },
+            "imageAlt": {
+              "required": false,
+              "example": "Product name",
+              "note": "Empty string marks image as decorative (aria-hidden)"
+            }
+          }
+        },
+        "propsSchema": {
+          "products": "Array<{ id: string, name: string, price: string, imageSrc: string, imageAlt?: string, onFavorite?: () => void, onProductClick?: () => void, isFavorited?: boolean }>",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Product section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "imageClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "cardNameClassName?": "string",
+          "cardPriceClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string"
+        },
+        "usage": "<ProductCardOne products={[{ id: '1', name: 'Eclipse Motion Pro', price: '$150', imageSrc: '/product.jpg', onProductClick: () => window.open('https://example.com', '_blank') }]} title=\"Featured Products\" />"
+      },
+      {
+        "import": "import ProductCardTwo from '@/components/sections/product/ProductCardTwo';",
+        "name": "ProductCardTwo",
+        "path": "@/components/sections/product/ProductCardTwo",
+        "description": "Product card displaying brand name, star rating, and review count for social proof.",
+        "details": "Use when brand reputation and customer reviews are important selling points. Layout: Image (top) → Brand Name (small, muted) → Product Name (medium) → Star Rating + Review Count → Price (large text). Shows 5-star rating visualization with filled/unfilled stars and review count in parentheses (e.g., '23.9k'). Best for marketplaces, brand-heavy catalogs, or when social proof drives purchases. Each card has favorite button overlay on image and image scales 105% on hover. Does NOT show: arrow button, quantity controls.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Premium Collection",
+              "minChars": 2,
+              "maxChars": 35
+            },
+            "description": {
+              "required": false,
+              "example": "Curated selection of top-rated products",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Best Sellers",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "productCardRules": {
+            "id": {
+              "required": true,
+              "example": "1",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "brand": {
+              "required": true,
+              "example": "Wofurnitures",
+              "minChars": 2,
+              "maxChars": 30
+            },
+            "name": {
+              "required": true,
+              "example": "Single Accent Chair",
+              "minChars": 2,
+              "maxChars": 50
+            },
+            "price": {
+              "required": true,
+              "example": "$650.00",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "rating": {
+              "required": true,
+              "example": 4,
+              "note": "Number from 1-5 representing star rating"
+            },
+            "reviewCount": {
+              "required": true,
+              "example": "23.9k",
+              "minChars": 1,
+              "maxChars": 10
+            }
+          },
+          "mediaRules": {
+            "imageSrc": {
+              "required": true,
+              "example": "/product.jpg",
+              "note": "Supports external URLs with unoptimized prop"
+            },
+            "imageAlt": {
+              "required": false,
+              "example": "Product name",
+              "note": "Empty string marks image as decorative (aria-hidden)"
+            }
+          }
+        },
+        "propsSchema": {
+          "products": "Array<{ id: string, brand: string, name: string, price: string, rating: number, reviewCount: string, imageSrc: string, imageAlt?: string, onFavorite?: () => void, onProductClick?: () => void, isFavorited?: boolean }>",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Product section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "imageClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "cardBrandClassName?": "string",
+          "cardNameClassName?": "string",
+          "cardPriceClassName?": "string",
+          "cardRatingClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string"
+        },
+        "usage": "<ProductCardTwo products={[{ id: '1', brand: 'Wofurnitures', name: 'Single Accent Chair', price: '$650.00', rating: 4, reviewCount: '23.9k', imageSrc: '/product.jpg', onProductClick: () => window.open('https://example.com', '_blank') }]} title=\"Premium Collection\" />"
+      },
+      {
+        "import": "import ProductCardThree from '@/components/sections/product/ProductCardThree';",
+        "name": "ProductCardThree",
+        "path": "@/components/sections/product/ProductCardThree",
+        "description": "E-commerce product card with quantity selector and add-to-cart price button.",
+        "details": "Use for shopping cart or e-commerce flows where users add items directly. Layout: Image (top) → Product Name → Quantity Controls (- button, number, + button) + Price Button (styled CTA). The quantity controls let users select amount before adding to cart. Price is displayed inside a themed button (from ThemeProvider). Best for checkout flows, quick-add interfaces, or when quantity selection is essential before purchase. Each card has favorite button overlay on image and image scales 105% on hover. Does NOT show: brand name, ratings, arrow icon.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Shop Now",
+              "minChars": 2,
+              "maxChars": 35
+            },
+            "description": {
+              "required": false,
+              "example": "Add your favorite items to cart",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Limited Stock",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "productCardRules": {
+            "id": {
+              "required": true,
+              "example": "1",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "name": {
+              "required": true,
+              "example": "TIMBUK2 Classic Messenger Bag",
+              "minChars": 2,
+              "maxChars": 50
+            },
+            "price": {
+              "required": true,
+              "example": "$119.00",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "initialQuantity": {
+              "required": false,
+              "example": 1,
+              "note": "Default quantity value (default: 1)"
+            }
+          },
+          "mediaRules": {
+            "imageSrc": {
+              "required": true,
+              "example": "/product.jpg",
+              "note": "Supports external URLs with unoptimized prop"
+            },
+            "imageAlt": {
+              "required": false,
+              "example": "Product name",
+              "note": "Empty string marks image as decorative (aria-hidden)"
+            }
+          }
+        },
+        "propsSchema": {
+          "products": "Array<{ id: string, name: string, price: string, imageSrc: string, imageAlt?: string, onFavorite?: () => void, onProductClick?: () => void, onQuantityChange?: (quantity: number) => void, isFavorited?: boolean, initialQuantity?: number, priceButtonProps?: Partial<ButtonPropsForVariant<CTAButtonVariant>> }>",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Product section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "imageClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "cardNameClassName?": "string",
+          "quantityControlsClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string"
+        },
+        "usage": "<ProductCardThree products={[{ id: '1', name: 'TIMBUK2 Classic Messenger Bag', price: '$119.00', imageSrc: '/product.jpg', onProductClick: () => window.open('https://example.com', '_blank'), onQuantityChange: (qty) => console.log(qty) }]} title=\"Shop Now\" />"
+      }
+    ],
+    "pricing": [
+      {
+        "import": "import PricingCardOne from '@/components/sections/pricing/PricingCardOne';",
+        "name": "PricingCardOne",
+        "path": "@/components/sections/pricing/PricingCardOne",
+        "description": "Pricing card with badge, price, subtitle, and feature list with checkmarks.",
+        "details": "Use for displaying pricing plans with clear feature breakdowns. Layout: Badge (with optional icon) → Price (large, bold) → Subtitle (plan description) → Divider → Feature List (with check icons). All cards must have badge, subtitle, and features for visual consistency. Best for SaaS pricing, subscription plans, or tiered services. Automatically switches between grid (1-4 items) and carousel (5+ items). Optional header with title, description, tag, and buttons.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Choose Your Plan",
+              "minChars": 2,
+              "maxChars": 35
+            },
+            "description": {
+              "required": false,
+              "example": "Select the perfect plan for your needs",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Pricing",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "pricingPlanRules": {
+            "id": {
+              "required": true,
+              "example": "1",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "badge": {
+              "required": true,
+              "example": "Most Popular",
+              "minChars": 2,
+              "maxChars": 30,
+              "note": "Required for visual consistency across all cards"
+            },
+            "price": {
+              "required": true,
+              "example": "$29/mo",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "subtitle": {
+              "required": true,
+              "example": "Perfect for small teams",
+              "minChars": 5,
+              "maxChars": 100,
+              "note": "Required for visual consistency across all cards"
+            },
+            "features": {
+              "required": true,
+              "example": ["Up to 10 team members", "100GB storage", "Priority support"],
+              "note": "Array of feature strings, required for visual consistency"
+            },
+            "badgeIcon": {
+              "required": false,
+              "example": "Sparkles",
+              "note": "Optional Lucide icon to display next to badge"
+            }
+          }
+        },
+        "propsSchema": {
+          "plans": "Array<{ id: string, badge: string, badgeIcon?: LucideIcon, price: string, subtitle: string, features: string[] }>",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Pricing section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "badgeClassName?": "string",
+          "priceClassName?": "string",
+          "subtitleClassName?": "string",
+          "featuresClassName?": "string",
+          "featureItemClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string"
+        },
+        "usage": "<PricingCardOne plans={[{ id: '1', badge: 'Most Popular', price: '$29/mo', subtitle: 'Perfect for small teams', features: ['Up to 10 team members', '100GB storage', 'Priority support'] }]} title=\"Choose Your Plan\" />"
+      },
+      {
+        "import": "import PricingCardTwo from '@/components/sections/pricing/PricingCardTwo';",
+        "name": "PricingCardTwo",
+        "path": "@/components/sections/pricing/PricingCardTwo",
+        "description": "Pricing card with badge, price, subtitle, two CTA buttons, and feature list with checkmarks.",
+        "details": "Use for pricing plans with direct call-to-action buttons for conversion. Layout: Badge (with optional icon) → Price (large, bold, centered) → Subtitle (plan description, centered) → Two CTA Buttons (full-width, primary/secondary styling) → Divider → Feature List (with check icons). All cards must have badge, subtitle, and features for visual consistency. Buttons use primary/secondary logic (first button = primary-button, second = secondary-button) controlled by ThemeProvider. Best for SaaS pricing, subscription plans, or tiered services requiring immediate action. Automatically switches between grid (1-4 items) and carousel (5+ items). Optional header with title, description, tag, and buttons.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Choose Your Plan",
+              "minChars": 2,
+              "maxChars": 35
+            },
+            "description": {
+              "required": false,
+              "example": "Select the perfect plan for your needs",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Pricing",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "pricingPlanRules": {
+            "id": {
+              "required": true,
+              "example": "1",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "badge": {
+              "required": true,
+              "example": "Business Plan",
+              "minChars": 2,
+              "maxChars": 30,
+              "note": "Required for visual consistency across all cards"
+            },
+            "price": {
+              "required": true,
+              "example": "$29/mo",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "subtitle": {
+              "required": true,
+              "example": "Perfect for small teams",
+              "minChars": 5,
+              "maxChars": 100,
+              "note": "Required for visual consistency across all cards"
+            },
+            "buttons": {
+              "required": true,
+              "maxButtons": 2,
+              "structure": {
+                "text": "string - Button label (required)",
+                "href": "string - Link destination (optional)",
+                "onClick": "() => void - Click handler (optional)",
+                "props": "Partial<ButtonPropsForVariant> - Additional button props (optional)"
+              },
+              "note": "First button (index 0) = primary-button, second (index 1) = secondary-button. Button variant controlled by ThemeProvider's defaultButtonVariant. Border radius controlled by ThemeProvider's borderRadius. All sections should be wrapped in a single ThemeProvider at the app/page level."
+            },
+            "features": {
+              "required": true,
+              "example": ["Up to 10 team members", "100GB storage", "Priority support"],
+              "note": "Array of feature strings, required for visual consistency"
+            },
+            "badgeIcon": {
+              "required": false,
+              "example": "Sparkles",
+              "note": "Optional Lucide icon to display next to badge"
+            }
+          }
+        },
+        "propsSchema": {
+          "plans": "Array<{ id: string, badge: string, badgeIcon?: LucideIcon, price: string, subtitle: string, buttons: ButtonConfig[], features: string[] }>",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Pricing section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "badgeClassName?": "string",
+          "priceClassName?": "string",
+          "subtitleClassName?": "string",
+          "planButtonContainerClassName?": "string",
+          "planButtonClassName?": "string",
+          "featuresClassName?": "string",
+          "featureItemClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string"
+        },
+        "usage": "<PricingCardTwo plans={[{ id: '1', badge: 'Business Plan', price: '$29/mo', subtitle: 'Perfect for small teams', buttons: [{ text: 'Get Started', onClick: () => console.log('clicked') }, { text: 'Chat to Sales', onClick: () => console.log('chat') }], features: ['Up to 10 team members', '100GB storage', 'Priority support'] }]} title=\"Choose Your Plan\" />"
+      },
+      {
+        "import": "import PricingCardThree from '@/components/sections/pricing/PricingCardThree';",
+        "name": "PricingCardThree",
+        "path": "@/components/sections/pricing/PricingCardThree",
+        "description": "Pricing card with optional floating badge, price, plan name, two CTA buttons, and feature list.",
+        "details": "Use for pricing plans with prominent badge callouts (e.g., 'Most popular plan'). Layout: Optional Badge (floats above card) → Price (large, bold, centered) → Plan Name (centered) → Divider → Feature List (with check icons) → Two CTA Buttons (full-width, primary/secondary styling). Badge can appear on ANY plan - always exists but uses visible/invisible for consistent spacing. Cards with badge have rounded-t-none (connects to badge), cards without badge have normal rounding. Buttons use primary/secondary logic (first button = primary-button, second = secondary-button) controlled by ThemeProvider. Best for highlighting popular or recommended plans. Automatically switches between grid (1-4 items) and carousel (5+ items). Optional header with title, description, tag, and buttons.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Choose Your Plan",
+              "minChars": 2,
+              "maxChars": 35
+            },
+            "description": {
+              "required": false,
+              "example": "Select the perfect plan for your needs",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Pricing",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "pricingPlanRules": {
+            "id": {
+              "required": true,
+              "example": "1",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "badge": {
+              "required": false,
+              "example": "Most popular plan",
+              "minChars": 2,
+              "maxChars": 40,
+              "note": "Optional badge that floats above the card. Can be on ANY plan. Always exists but uses visible/invisible for consistent spacing."
+            },
+            "badgeIcon": {
+              "required": false,
+              "example": "Sparkles",
+              "note": "Optional Lucide icon to display next to badge"
+            },
+            "price": {
+              "required": true,
+              "example": "$29/mo",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "name": {
+              "required": true,
+              "example": "Business plan",
+              "minChars": 2,
+              "maxChars": 50,
+              "note": "Plan name displayed below price"
+            },
+            "buttons": {
+              "required": true,
+              "maxButtons": 2,
+              "structure": {
+                "text": "string - Button label (required)",
+                "href": "string - Link destination (optional)",
+                "onClick": "() => void - Click handler (optional)",
+                "props": "Partial<ButtonPropsForVariant> - Additional button props (optional)"
+              },
+              "note": "First button (index 0) = primary-button, second (index 1) = secondary-button. Button variant controlled by ThemeProvider's defaultButtonVariant. Border radius controlled by ThemeProvider's borderRadius. All sections should be wrapped in a single ThemeProvider at the app/page level."
+            },
+            "features": {
+              "required": true,
+              "example": ["Up to 10 team members", "100GB storage", "Priority support"],
+              "note": "Array of feature strings, required for visual consistency"
+            }
+          }
+        },
+        "propsSchema": {
+          "plans": "Array<{ id: string, badge?: string, badgeIcon?: LucideIcon, price: string, name: string, buttons: ButtonConfig[], features: string[] }>",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Pricing section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "badgeClassName?": "string",
+          "priceClassName?": "string",
+          "nameClassName?": "string",
+          "planButtonContainerClassName?": "string",
+          "planButtonClassName?": "string",
+          "featuresClassName?": "string",
+          "featureItemClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string"
+        },
+        "usage": "<PricingCardThree plans={[{ id: '1', price: '$10/mo', name: 'Basic plan', buttons: [{ text: 'Get started', onClick: () => console.log('clicked') }, { text: 'Chat to sales', onClick: () => console.log('chat') }], features: ['Up to 10 users', '20GB storage', 'Email support'] }, { id: '2', badge: 'Most popular plan', badgeIcon: Sparkles, price: '$20/mo', name: 'Business plan', buttons: [{ text: 'Get started', onClick: () => console.log('clicked') }, { text: 'Chat to sales', onClick: () => console.log('chat') }], features: ['Up to 20 users', '40GB storage', 'Priority support'] }]} title=\"Choose Your Plan\" />"
+      }
+    ],
+    "metric": [
+      {
+        "import": "import MetricCardOne from '@/components/sections/metrics/MetricCardOne';",
+        "name": "MetricCardOne",
+        "path": "@/components/sections/metrics/MetricCardOne",
+        "description": "Metric card with large gradient value text, title, description, and icon badge.",
+        "details": "Use for displaying key metrics, statistics, or KPIs with visual impact. Layout: Large Gradient Value (9xl, overlapping) → Title (4xl, overlaps value with negative margin) → Description (base text, centered) → Icon Badge (bottom-left corner, primary-button styling). Value text uses gradient effect with CSS variables for theme consistency. All fields are required for visual consistency. Best for stats sections, achievement displays, or data visualization. Automatically switches between grid (1-4 items) and carousel (5+ items). Optional header with title, description, tag, and buttons.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Our Impact",
+              "minChars": 2,
+              "maxChars": 35
+            },
+            "description": {
+              "required": false,
+              "example": "Key metrics that showcase our growth and success",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Statistics",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "metricRules": {
+            "id": {
+              "required": true,
+              "example": "1",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "value": {
+              "required": true,
+              "example": "100",
+              "minChars": 1,
+              "maxChars": 10,
+              "note": "Large metric value displayed with gradient effect"
+            },
+            "title": {
+              "required": true,
+              "example": "million",
+              "minChars": 2,
+              "maxChars": 30,
+              "note": "Metric label displayed below value with negative margin overlap"
+            },
+            "description": {
+              "required": true,
+              "example": "Active users worldwide",
+              "minChars": 5,
+              "maxChars": 150,
+              "note": "Supporting description text displayed below title"
+            },
+            "icon": {
+              "required": true,
+              "example": "TrendingUp",
+              "note": "Lucide icon displayed in bottom-left corner with primary-button styling"
+            }
+          }
+        },
+        "propsSchema": {
+          "metrics": "Array<{ id: string, value: string, title: string, description: string, icon: LucideIcon }>",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Metrics section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "valueClassName?": "string",
+          "titleClassName?": "string",
+          "descriptionClassName?": "string",
+          "iconContainerClassName?": "string",
+          "iconClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string"
+        },
+        "usage": "<MetricCardOne metrics={[{ id: '1', value: '100', title: 'million', description: 'Active users worldwide', icon: TrendingUp }, { id: '2', value: '700', title: 'thousand', description: 'Projects completed successfully', icon: Users }]} title=\"Our Impact\" />"
+      },
+      {
+        "import": "import MetricCardTwo from '@/components/sections/metrics/MetricCardTwo';",
+        "name": "MetricCardTwo",
+        "path": "@/components/sections/metrics/MetricCardTwo",
+        "description": "Simple metric card with large value and description text.",
+        "details": "Use for clean, minimal metric displays focused on readability. Layout: Large Value (9xl on mobile, 7xl on lg, bold) → Description (xl text). Card has fixed height (h-50 lg:h-60 2xl:h-70) with space-between layout for consistent vertical spacing. All fields are required for visual consistency. Best for dashboard statistics, simple KPI displays, or metric overviews where simplicity is key. Automatically switches between grid (1-4 items) and carousel (5+ items). Optional header with title, description, tag, and buttons.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Key Metrics",
+              "minChars": 2,
+              "maxChars": 35
+            },
+            "description": {
+              "required": false,
+              "example": "Performance indicators at a glance",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Stats",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "metricRules": {
+            "id": {
+              "required": true,
+              "example": "1",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "value": {
+              "required": true,
+              "example": "98%",
+              "minChars": 1,
+              "maxChars": 15,
+              "note": "Large metric value displayed prominently"
+            },
+            "description": {
+              "required": true,
+              "example": "Customer Satisfaction Rate",
+              "minChars": 5,
+              "maxChars": 100,
+              "note": "Metric label/description displayed below value"
+            }
+          }
+        },
+        "propsSchema": {
+          "metrics": "Array<{ id: string, value: string, description: string }>",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Metrics section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "valueClassName?": "string",
+          "metricDescriptionClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string"
+        },
+        "usage": "<MetricCardTwo metrics={[{ id: '1', value: '98%', description: 'Customer Satisfaction Rate' }, { id: '2', value: '50K+', description: 'Active Users Worldwide' }]} title=\"Key Metrics\" />"
+      },
+      {
+        "import": "import MetricCardThree from '@/components/sections/metrics/MetricCardThree';",
+        "name": "MetricCardThree",
+        "path": "@/components/sections/metrics/MetricCardThree",
+        "description": "Metric card with icon badge, title header, and large value display.",
+        "details": "Use for icon-led metric displays with clear categorization. Layout: Icon (primary-button, rounded-theme) + Title (xl text, on same row) → Large Value (7xl, bold, centered). Card has fixed height (h-60 2xl:h-70) with centered layout. Icon uses primary-button styling with text-background for contrast. All fields are required for visual consistency. Best for categorized statistics, feature metrics, or KPIs that need visual identification. Automatically switches between grid (1-4 items) and carousel (5+ items). Optional header with title, description, tag, and buttons.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Performance Metrics",
+              "minChars": 2,
+              "maxChars": 35
+            },
+            "description": {
+              "required": false,
+              "example": "Track your key performance indicators",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "KPIs",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "metricRules": {
+            "id": {
+              "required": true,
+              "example": "1",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "icon": {
+              "required": true,
+              "example": "TrendingUp",
+              "note": "Lucide icon displayed in primary-button styled circular badge"
+            },
+            "title": {
+              "required": true,
+              "example": "Conversions",
+              "minChars": 2,
+              "maxChars": 30,
+              "note": "Metric category/label displayed next to icon"
+            },
+            "value": {
+              "required": true,
+              "example": "7,000+",
+              "minChars": 1,
+              "maxChars": 15,
+              "note": "Large metric value displayed below icon and title"
+            }
+          }
+        },
+        "propsSchema": {
+          "metrics": "Array<{ id: string, icon: LucideIcon, title: string, value: string }>",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Metrics section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "iconContainerClassName?": "string",
+          "iconClassName?": "string",
+          "metricTitleClassName?": "string",
+          "valueClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string"
+        },
+        "usage": "<MetricCardThree metrics={[{ id: '1', icon: TrendingUp, title: 'Conversions', value: '7,000+' }, { id: '2', icon: Users, title: 'Active Users', value: '50,000+' }]} title=\"Performance Metrics\" />"
+      }
+    ],
+    "team": [
+      {
+        "import": "import TeamCardOne from '@/components/sections/team/TeamCardOne';",
+        "name": "TeamCardOne",
+        "path": "@/components/sections/team/TeamCardOne",
+        "description": "Team member card with image background, overlay info card at bottom-left corner.",
+        "details": "Use for team member profiles with compact overlay display. Layout: Outer Card (p-4) → Full Square Image → Bottom-Left Overlay Card (Name + Role Badge in row). Image has aspect-square with rounded-theme. Overlay positioned at bottom-4 left-4 with card styling. Name and role badge displayed horizontally with gap-3. Role uses primary-button styling. All core fields required for visual consistency. Best for team grids with clean, modern aesthetic. Automatically switches between grid (1-4 items) and carousel (5+ items). Optional header with title, description, tag, and buttons.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Meet Our Team",
+              "minChars": 2,
+              "maxChars": 35
+            },
+            "description": {
+              "required": false,
+              "example": "The people behind our success",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Team",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "teamMemberRules": {
+            "id": {
+              "required": true,
+              "example": "1",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "name": {
+              "required": true,
+              "example": "Sophie P.",
+              "minChars": 2,
+              "maxChars": 50,
+              "note": "Team member name displayed in overlay card"
+            },
+            "role": {
+              "required": true,
+              "example": "Digital Nomad",
+              "minChars": 2,
+              "maxChars": 40,
+              "note": "Role/title displayed in primary-button badge"
+            },
+            "imageSrc": {
+              "required": true,
+              "example": "/team/sophie.jpg",
+              "note": "Image path for team member photo (displays as square with rounded-theme)"
+            },
+            "imageAlt": {
+              "required": false,
+              "example": "Portrait of Sophie P.",
+              "note": "Alt text for image (defaults to member name if not provided)"
+            }
+          }
+        },
+        "propsSchema": {
+          "members": "Array<{ id: string, name: string, role: string, imageSrc: string, imageAlt?: string }>",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Team section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "imageClassName?": "string",
+          "overlayClassName?": "string",
+          "nameClassName?": "string",
+          "roleClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string"
+        },
+        "usage": "<TeamCardOne members={[{ id: '1', name: 'Sophie P.', role: 'Digital Nomad', imageSrc: '/team/sophie.jpg' }]} title=\"Meet Our Team\" />"
+      },
+      {
+        "import": "import TeamCardTwo from '@/components/sections/team/TeamCardTwo';",
+        "name": "TeamCardTwo",
+        "path": "@/components/sections/team/TeamCardTwo",
+        "description": "Team member card with image background, overlay info card, and social links.",
+        "details": "Use for team member profiles with visual impact. Layout: Full Image Background → Bottom Overlay Card (Name + Role Badge in header row → Description → Social Link Icons). Card has fixed height (h-100) with image fill. Overlay uses card styling with rounded corners. Name on left, role badge (secondary-button) on right in header. Social links are flexible - pass any Lucide icon with url. Icons use primary-button styling with text-background for contrast. All required fields for visual consistency. Best for team pages, about sections, or leadership displays. Automatically switches between grid (1-4 items) and carousel (5+ items). Optional header with title, description, tag, and buttons.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Meet Our Team",
+              "minChars": 2,
+              "maxChars": 35
+            },
+            "description": {
+              "required": false,
+              "example": "The talented people behind our success",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Team",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "teamMemberRules": {
+            "id": {
+              "required": true,
+              "example": "1",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "name": {
+              "required": true,
+              "example": "Alisa Hester",
+              "minChars": 2,
+              "maxChars": 50,
+              "note": "Team member name displayed in overlay header"
+            },
+            "role": {
+              "required": true,
+              "example": "Founder & CEO",
+              "minChars": 2,
+              "maxChars": 40,
+              "note": "Role/title displayed in secondary-button badge"
+            },
+            "description": {
+              "required": true,
+              "example": "Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",
+              "minChars": 10,
+              "maxChars": 200,
+              "note": "Brief bio or description"
+            },
+            "imageSrc": {
+              "required": true,
+              "example": "/team/member-1.jpg",
+              "note": "Image path for team member photo"
+            },
+            "imageAlt": {
+              "required": false,
+              "example": "Portrait of Alisa Hester",
+              "note": "Alt text for image (defaults to member name if not provided)"
+            },
+            "socialLinks": {
+              "required": false,
+              "structure": {
+                "icon": "LucideIcon - Any Lucide icon component (required)",
+                "url": "string - Social profile URL (required)"
+              },
+              "note": "Flexible social links array. Pass any Lucide icon (Twitter, Linkedin, Globe, Github, etc.) with corresponding URL. Icons display in primary-button styled circles."
+            }
+          }
+        },
+        "propsSchema": {
+          "members": "Array<{ id: string, name: string, role: string, description: string, imageSrc: string, imageAlt?: string, socialLinks?: Array<{ icon: LucideIcon, url: string }> }>",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Team section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "imageClassName?": "string",
+          "overlayClassName?": "string",
+          "nameClassName?": "string",
+          "roleClassName?": "string",
+          "memberDescriptionClassName?": "string",
+          "socialLinksClassName?": "string",
+          "socialIconClassName?": "string",
+          "arrowIconClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string"
+        },
+        "usage": "<TeamCardTwo members={[{ id: '1', name: 'Alisa Hester', role: 'Founder & CEO', description: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.', imageSrc: '/team/alisa.jpg', socialLinks: [{ icon: Twitter, url: 'https://twitter.com/alisa' }, { icon: Linkedin, url: 'https://linkedin.com/in/alisa' }] }]} title=\"Meet Our Team\" />"
+      },
+      {
+        "import": "import TeamCardThree from '@/components/sections/team/TeamCardThree';",
+        "name": "TeamCardThree",
+        "path": "@/components/sections/team/TeamCardThree",
+        "description": "Team member card with circular profile image, name, role, and social links.",
+        "details": "Use for clean, centered team member profiles. Layout: Circular Profile Image → Name → Role → Social Link Icons. Card has square aspect ratio image with rounded-theme styling. Name and role use tight line-height (1.15) for compact spacing. Social links are flexible - pass any Lucide icon with url. Icons use primary-button styling with text-background for contrast. All core fields required for visual consistency. Best for team grids, about pages, or staff directories. Automatically switches between grid (1-4 items) and carousel (5+ items). Optional header with title, description, tag, and buttons.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Our Team",
+              "minChars": 2,
+              "maxChars": 35
+            },
+            "description": {
+              "required": false,
+              "example": "Meet the people who make it all possible",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Team",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "teamMemberRules": {
+            "id": {
+              "required": true,
+              "example": "1",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "name": {
+              "required": true,
+              "example": "Amélie Laurent",
+              "minChars": 2,
+              "maxChars": 50,
+              "note": "Team member name displayed below image"
+            },
+            "role": {
+              "required": true,
+              "example": "Founder & CEO",
+              "minChars": 2,
+              "maxChars": 40,
+              "note": "Role/title displayed below name"
+            },
+            "imageSrc": {
+              "required": true,
+              "example": "/team/amelie.jpg",
+              "note": "Image path for team member photo (displays as square with rounded-theme)"
+            },
+            "imageAlt": {
+              "required": false,
+              "example": "Portrait of Amélie Laurent",
+              "note": "Alt text for image (defaults to member name if not provided)"
+            },
+            "socialLinks": {
+              "required": false,
+              "structure": {
+                "icon": "LucideIcon - Any Lucide icon component (required)",
+                "url": "string - Social profile URL (required)"
+              },
+              "note": "Flexible social links array. Pass any Lucide icon (Twitter, Linkedin, Globe, Github, etc.) with corresponding URL. Icons display in primary-button styled circles."
+            }
+          }
+        },
+        "propsSchema": {
+          "members": "Array<{ id: string, name: string, role: string, imageSrc: string, imageAlt?: string, socialLinks?: Array<{ icon: LucideIcon, url: string }> }>",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Team section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "imageClassName?": "string",
+          "nameClassName?": "string",
+          "roleClassName?": "string",
+          "socialLinksClassName?": "string",
+          "socialIconClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string"
+        },
+        "usage": "<TeamCardThree members={[{ id: '1', name: 'Amélie Laurent', role: 'Founder & CEO', imageSrc: '/team/amelie.jpg', socialLinks: [{ icon: Twitter, url: 'https://twitter.com/amelie' }, { icon: Linkedin, url: 'https://linkedin.com/in/amelie' }] }]} title=\"Our Team\" />"
+      }
+    ],
+    "testimonial": [
+      {
+        "import": "import TestimonialCardOne from '@/components/sections/testimonial/TestimonialCardOne';",
+        "name": "TestimonialCardOne",
+        "path": "@/components/sections/testimonial/TestimonialCardOne",
+        "description": "Testimonial card with image background, star rating, name, role, and company overlay.",
+        "details": "Use for displaying customer testimonials with visual impact. Layout: Full Image Background → Bottom Overlay Card (Star Rating → Name → Role + Company). Card has fixed height (h-100, 2xl:h-120) with image fill. Overlay uses card styling with rounded corners. Star rating displayed at top using filled Star icons. Name, role, and company stacked vertically with tight line-height. All core fields required for visual consistency. Best for testimonial sections, reviews, or social proof displays. Automatically switches between grid (1-4 items) and carousel (5+ items). Optional header with title, description, tag, and buttons.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "What Our Customers Say",
+              "minChars": 2,
+              "maxChars": 50
+            },
+            "description": {
+              "required": false,
+              "example": "Real feedback from our valued customers",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Testimonials",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "testimonialRules": {
+            "id": {
+              "required": true,
+              "example": "1",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "name": {
+              "required": true,
+              "example": "Alisa Hester",
+              "minChars": 2,
+              "maxChars": 50,
+              "note": "Customer name displayed in overlay"
+            },
+            "role": {
+              "required": true,
+              "example": "PM, Hourglass",
+              "minChars": 2,
+              "maxChars": 50,
+              "note": "Customer role/position"
+            },
+            "company": {
+              "required": true,
+              "example": "Web Design Agency",
+              "minChars": 2,
+              "maxChars": 50,
+              "note": "Customer company name"
+            },
+            "rating": {
+              "required": true,
+              "example": 5,
+              "min": 1,
+              "max": 5,
+              "note": "Star rating (1-5 stars)"
+            },
+            "imageSrc": {
+              "required": true,
+              "example": "/testimonials/alisa.jpg",
+              "note": "Image path for customer photo"
+            },
+            "imageAlt": {
+              "required": false,
+              "example": "Portrait of Alisa Hester",
+              "note": "Alt text for image (defaults to customer name if not provided)"
+            }
+          }
+        },
+        "propsSchema": {
+          "testimonials": "Array<{ id: string, name: string, role: string, company: string, rating: number, imageSrc: string, imageAlt?: string }>",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Testimonials section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "imageClassName?": "string",
+          "overlayClassName?": "string",
+          "ratingClassName?": "string",
+          "nameClassName?": "string",
+          "roleClassName?": "string",
+          "companyClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string"
+        },
+        "usage": "<TestimonialCardOne testimonials={[{ id: '1', name: 'Alisa Hester', role: 'PM, Hourglass', company: 'Web Design Agency', rating: 5, imageSrc: '/testimonials/alisa.jpg' }]} title=\"What Our Customers Say\" />"
+      },
+      {
+        "import": "import TestimonialCardTwo from '@/components/sections/testimonial/TestimonialCardTwo';",
+        "name": "TestimonialCardTwo",
+        "path": "@/components/sections/testimonial/TestimonialCardTwo",
+        "description": "Testimonial card with circular image or icon, name, role, and testimonial text.",
+        "details": "Use for displaying customer testimonials in a clean, card-based layout. Layout: Circular Image/Icon → Name + Role → Testimonial Text. If imageSrc is provided, displays circular profile image; otherwise shows icon (defaults to Quote if not specified). Icon/image container uses primary-button styling with rounded-theme. All text stacked vertically with consistent spacing. All core fields required for visual consistency. Best for testimonial grids, review sections, or customer feedback displays. Automatically switches between grid (1-4 items) and carousel (5+ items). Optional header with title, description, tag, and buttons.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Customer Reviews",
+              "minChars": 2,
+              "maxChars": 50
+            },
+            "description": {
+              "required": false,
+              "example": "See what our customers have to say",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Reviews",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "testimonialRules": {
+            "id": {
+              "required": true,
+              "example": "1",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "name": {
+              "required": true,
+              "example": "Sarah Mitchell",
+              "minChars": 2,
+              "maxChars": 50,
+              "note": "Customer name"
+            },
+            "role": {
+              "required": true,
+              "example": "Director of Operations",
+              "minChars": 2,
+              "maxChars": 80,
+              "note": "Customer role/position"
+            },
+            "testimonial": {
+              "required": true,
+              "example": "The attention to detail and commitment to excellence was outstanding throughout the entire project.",
+              "minChars": 10,
+              "maxChars": 500,
+              "note": "Testimonial text content"
+            },
+            "imageSrc": {
+              "required": false,
+              "example": "/testimonials/sarah.jpg",
+              "note": "Optional image path for customer photo. If not provided, icon will be displayed instead."
+            },
+            "imageAlt": {
+              "required": false,
+              "example": "Portrait of Sarah Mitchell",
+              "note": "Alt text for image (defaults to customer name if not provided)"
+            },
+            "icon": {
+              "required": false,
+              "example": "Package",
+              "note": "Optional Lucide icon to display when no image is provided. Defaults to Quote icon."
+            }
+          }
+        },
+        "propsSchema": {
+          "testimonials": "Array<{ id: string, name: string, role: string, testimonial: string, imageSrc?: string, imageAlt?: string, icon?: LucideIcon }>",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Testimonials section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "imageWrapperClassName?": "string",
+          "imageClassName?": "string",
+          "iconClassName?": "string",
+          "nameClassName?": "string",
+          "roleClassName?": "string",
+          "testimonialClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string"
+        },
+        "usage": "<TestimonialCardTwo testimonials={[{ id: '1', name: 'Sarah Mitchell', role: 'Director of Operations', testimonial: 'The attention to detail and commitment to excellence was outstanding.', icon: Package }]} title=\"Customer Reviews\" />"
+      },
+      {
+        "import": "import TestimonialCardThree from '@/components/sections/testimonial/TestimonialCardThree';",
+        "name": "TestimonialCardThree",
+        "path": "@/components/sections/testimonial/TestimonialCardThree",
+        "description": "Testimonial card with horizontal layout - circular image or icon next to name and handle, with testimonial text below.",
+        "details": "Use for displaying social media style testimonials. Layout: Row (Circular Image/Icon + Name + Handle) → Testimonial Text. If imageSrc is provided, displays circular profile image; otherwise shows icon (defaults to Quote if not specified). Icon/image container uses primary-button styling with rounded-theme. Compact header with name and handle side by side. All text with consistent spacing. All core fields required for visual consistency. Best for social proof sections, review grids, or customer feedback displays. Automatically switches between grid (1-4 items) and carousel (5+ items). Optional header with title, description, tag, and buttons.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "What People Are Saying",
+              "minChars": 2,
+              "maxChars": 50
+            },
+            "description": {
+              "required": false,
+              "example": "Real feedback from real users",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Testimonials",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "testimonialRules": {
+            "id": {
+              "required": true,
+              "example": "1",
+              "minChars": 1,
+              "maxChars": 20
+            },
+            "name": {
+              "required": true,
+              "example": "Jack",
+              "minChars": 2,
+              "maxChars": 50,
+              "note": "Customer name"
+            },
+            "handle": {
+              "required": true,
+              "example": "@jack",
+              "minChars": 2,
+              "maxChars": 50,
+              "note": "Customer handle or username"
+            },
+            "testimonial": {
+              "required": true,
+              "example": "I've never seen anything like this before. It's amazing. I love it.",
+              "minChars": 10,
+              "maxChars": 500,
+              "note": "Testimonial text content"
+            },
+            "imageSrc": {
+              "required": false,
+              "example": "/testimonials/jack.jpg",
+              "note": "Optional image path for customer photo. If not provided, icon will be displayed instead."
+            },
+            "imageAlt": {
+              "required": false,
+              "example": "Portrait of Jack",
+              "note": "Alt text for image (defaults to customer name if not provided)"
+            },
+            "icon": {
+              "required": false,
+              "example": "Package",
+              "note": "Optional Lucide icon to display when no image is provided. Defaults to Quote icon."
+            }
+          }
+        },
+        "propsSchema": {
+          "testimonials": "Array<{ id: string, name: string, handle: string, testimonial: string, imageSrc?: string, imageAlt?: string, icon?: LucideIcon }>",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Testimonials section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "imageWrapperClassName?": "string",
+          "imageClassName?": "string",
+          "iconClassName?": "string",
+          "nameClassName?": "string",
+          "handleClassName?": "string",
+          "testimonialClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string"
+        },
+        "usage": "<TestimonialCardThree testimonials={[{ id: '1', name: 'Jack', handle: '@jack', testimonial: 'I\\'ve never seen anything like this before. It\\'s amazing. I love it.', icon: Package }]} title=\"What People Are Saying\" />"
+      }
+    ],
+    "socialProof": [
+      {
+        "import": "import SocialProofOne from '@/components/sections/socialProof/SocialProofOne';",
+        "name": "SocialProofOne",
+        "path": "@/components/sections/socialProof/SocialProofOne",
+        "description": "Scrolling marquee logo showcase with optional card backgrounds.",
+        "details": "Use for displaying partner logos, client lists, or brand showcases. Layout: Optional TextBox Header → Scrolling Marquee with Logos. Logos scroll horizontally in an infinite loop (duplicated 4x for smooth scrolling). Optional card backgrounds with padding around each logo (default: enabled). When cards are shown: h-7 logos with mx-4 spacing and card styling. Without cards: h-8 logos with mx-8 spacing. Speed is customizable (default: 40px/s). Uses mask-padding-x for edge fade effect. All core fields required for visual consistency. Best for social proof sections, partner showcases, or brand displays. Optional header with title, description, tag, and buttons via CardStackTextBox.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Trusted by Industry Leaders",
+              "minChars": 2,
+              "maxChars": 50
+            },
+            "description": {
+              "required": false,
+              "example": "Join thousands of companies that trust our platform",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Partners",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "logoRules": {
+            "logos": {
+              "required": true,
+              "minItems": 6,
+              "example": "['/logos/company1.svg', '/logos/company2.svg', '/logos/company3.svg', '/logos/company4.svg', '/logos/company5.svg', '/logos/company6.svg']",
+              "note": "Array of logo image paths. Minimum 6 logos required. Will be duplicated 4x for smooth scrolling."
+            },
+            "speed": {
+              "required": false,
+              "default": 40,
+              "min": 10,
+              "max": 200,
+              "note": "Marquee scroll speed in pixels per second"
+            },
+            "showCard": {
+              "required": false,
+              "default": true,
+              "note": "Show card background around each logo with padding"
+            }
+          }
+        },
+        "propsSchema": {
+          "logos": "string[]",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "speed?": "number (default: 40)",
+          "showCard?": "boolean (default: true)",
+          "ariaLabel?": "string (default: 'Social proof section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string",
+          "contentClassName?": "string",
+          "logoItemClassName?": "string",
+          "logoCardClassName?": "string",
+          "logoImageClassName?": "string"
+        },
+        "usage": "<SocialProofOne logos={['/logos/company1.svg', '/logos/company2.svg', '/logos/company3.svg', '/logos/company4.svg', '/logos/company5.svg', '/logos/company6.svg']} title=\"Trusted by Industry Leaders\" />"
+      },
+      {
+        "import": "import SocialProofTwo from '@/components/sections/socialProof/SocialProofTwo';",
+        "name": "SocialProofTwo",
+        "path": "@/components/sections/socialProof/SocialProofTwo",
+        "description": "Grid logo showcase with separator lines or card backgrounds.",
+        "details": "Use for displaying 2-5 partner logos in a clean grid layout. Layout: Optional TextBox Header → Responsive Grid with Logos. Mobile: vertical column layout with full-width logos and horizontal separators between items. Desktop (lg+): horizontal row layout with logos distributed evenly (flex-basis based on count: 1/2, 1/3, 1/4, or 1/5) and vertical separators. Two display modes: 1) Default: logos with separator lines between items (no cards). 2) Card mode: each logo in a card with padding, gap spacing, no separators. Logo sizing: Mobile w-1/2, Desktop h-8 w-auto (non-card has max-w-full). Best for partner showcases, client lists with 2-5 logos where fixed grid layout is preferred over scrolling marquee.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Trusted by Industry Leaders",
+              "minChars": 2,
+              "maxChars": 50
+            },
+            "description": {
+              "required": false,
+              "example": "Join thousands of companies that trust our platform",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Partners",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "logoRules": {
+            "logos": {
+              "required": true,
+              "minItems": 2,
+              "maxItems": 5,
+              "example": "['/logos/company1.svg', '/logos/company2.svg', '/logos/company3.svg', '/logos/company4.svg', '/logos/company5.svg']",
+              "note": "Array of logo image paths. Minimum 2, maximum 5 logos for optimal grid layout."
+            },
+            "showCard": {
+              "required": false,
+              "default": false,
+              "note": "Show card background around each logo. When true: cards with padding and gap spacing, no separators. When false: separator lines between logos."
+            }
+          }
+        },
+        "propsSchema": {
+          "logos": "string[]",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "showCard?": "boolean (default: false)",
+          "ariaLabel?": "string (default: 'Social proof section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string",
+          "contentClassName?": "string",
+          "logoRowClassName?": "string",
+          "logoItemClassName?": "string",
+          "logoCardClassName?": "string",
+          "logoImageClassName?": "string",
+          "separatorClassName?": "string"
+        },
+        "usage": "<SocialProofTwo logos={['/logos/company1.svg', '/logos/company2.svg', '/logos/company3.svg', '/logos/company4.svg', '/logos/company5.svg']} />"
+      }
+    ],
+    "faq": [
+      {
+        "import": "import FaqBase from '@/components/sections/faq/FaqBase';",
+        "name": "FaqBase",
+        "path": "@/components/sections/faq/FaqBase",
+        "description": "FAQ section with accordion items and optional header.",
+        "details": "Use for displaying frequently asked questions in an expandable accordion format. Layout: Optional TextBox Header → Accordion List. Supports two animation types: 'smooth' (height transition) and 'instant' (immediate show/hide). Only one accordion item can be open at a time. Each FAQ requires a unique id, title (question), and content (answer). Content supports HTML for rich formatting. Optional header with title, description, tag, and buttons via CardStackTextBox. Best for FAQ pages, help sections, or any Q&A content.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Frequently Asked Questions",
+              "minChars": 2,
+              "maxChars": 50
+            },
+            "description": {
+              "required": false,
+              "example": "Find answers to common questions about our products and services",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Help",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "faqRules": {
+            "faqs": {
+              "required": true,
+              "minItems": 1,
+              "example": "[{\"id\": \"1\", \"title\": \"What is your return policy?\", \"content\": \"We offer a 30-day money-back guarantee.\"}]",
+              "note": "Array of FAQ items. Each item requires unique id, title (question), and content (answer with HTML support)."
+            },
+            "animationType": {
+              "required": false,
+              "default": "smooth",
+              "options": ["smooth", "instant"],
+              "note": "Animation type for accordion open/close. 'smooth' uses height transition, 'instant' shows/hides immediately."
+            }
+          }
+        },
+        "propsSchema": {
+          "faqs": "FaqItem[] (FaqItem: {id: string, title: string, content: string})",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "animationType?": "'smooth' | 'instant' (default: 'smooth')",
+          "showCard?": "boolean (default: true)",
+          "ariaLabel?": "string (default: 'FAQ section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string",
+          "faqsContainerClassName?": "string",
+          "accordionClassName?": "string",
+          "accordionTitleClassName?": "string",
+          "accordionIconContainerClassName?": "string",
+          "accordionIconClassName?": "string",
+          "accordionContentClassName?": "string",
+          "separatorClassName?": "string"
+        },
+        "usage": "<FaqBase faqs={[{id: '1', title: 'What is your return policy?', content: 'We offer a 30-day money-back guarantee on all our products.'}, {id: '2', title: 'How long does shipping take?', content: 'Standard shipping typically takes 5-7 business days.'}]} title=\"Frequently Asked Questions\" />"
+      },
+      {
+        "import": "import FaqDouble from '@/components/sections/faq/FaqDouble';",
+        "name": "FaqDouble",
+        "path": "@/components/sections/faq/FaqDouble",
+        "description": "FAQ section with two-column accordion layout and optional header.",
+        "details": "Use for displaying frequently asked questions in a two-column layout for better space utilization. Layout: Optional TextBox Header → Card Container with Two Columns of Accordions. FAQs are automatically split into two equal columns (first half in left column, second half in right). On mobile, columns stack vertically. Supports two animation types: 'smooth' (height transition) and 'instant' (immediate show/hide). Only one accordion item can be open at a time across both columns. Each FAQ requires a unique id, title (question), and content (answer). Content supports HTML for rich formatting. Card container has rounded-theme styling. Best for FAQ pages with many questions where horizontal space is available.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Frequently Asked Questions",
+              "minChars": 2,
+              "maxChars": 50
+            },
+            "description": {
+              "required": false,
+              "example": "Find answers to common questions about our products and services",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Help",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "faqRules": {
+            "faqs": {
+              "required": true,
+              "minItems": 1,
+              "example": "[{\"id\": \"1\", \"title\": \"What is your return policy?\", \"content\": \"We offer a 30-day money-back guarantee.\"}]",
+              "note": "Array of FAQ items. Each item requires unique id, title (question), and content (answer with HTML support). Items are automatically split into two columns."
+            },
+            "animationType": {
+              "required": false,
+              "default": "smooth",
+              "options": ["smooth", "instant"],
+              "note": "Animation type for accordion open/close. 'smooth' uses height transition, 'instant' shows/hides immediately."
+            }
+          }
+        },
+        "propsSchema": {
+          "faqs": "FaqItem[] (FaqItem: {id: string, title: string, content: string})",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "animationType?": "'smooth' | 'instant' (default: 'smooth')",
+          "showCard?": "boolean (default: true)",
+          "ariaLabel?": "string (default: 'FAQ section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string",
+          "faqsContainerClassName?": "string",
+          "columnClassName?": "string",
+          "accordionClassName?": "string",
+          "accordionTitleClassName?": "string",
+          "accordionIconContainerClassName?": "string",
+          "accordionIconClassName?": "string",
+          "accordionContentClassName?": "string"
+        },
+        "usage": "<FaqDouble faqs={[{id: '1', title: 'What is your return policy?', content: 'We offer a 30-day money-back guarantee on all our products.'}, {id: '2', title: 'How long does shipping take?', content: 'Standard shipping typically takes 5-7 business days.'}, {id: '3', title: 'Do you ship internationally?', content: 'Yes, we ship to over 100 countries worldwide.'}]} title=\"Frequently Asked Questions\" />"
+      },
+      {
+        "import": "import FaqSplitMedia from '@/components/sections/faq/FaqSplitMedia';",
+        "name": "FaqSplitMedia",
+        "path": "@/components/sections/faq/FaqSplitMedia",
+        "description": "FAQ section with split layout featuring media (image/video) on one side and accordion list on the other.",
+        "details": "Use for displaying FAQs with visual context. Layout: Optional TextBox Header → Grid with Media (2/5 width) + Accordions (3/5 width). Media can be positioned left or right via mediaPosition prop. Uses CSS Grid with auto-rows-fr to ensure media and FAQ content match height exactly. Media container has fixed height on mobile (h-80) and auto height on desktop to match FAQ content. Supports both images and videos. Only one accordion item can be open at a time. Supports two animation types: 'smooth' (height transition) and 'instant' (immediate show/hide). Each FAQ requires unique id, title (question), and content (answer with HTML support). Best for FAQ pages where visual elements enhance understanding.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Frequently Asked Questions",
+              "minChars": 2,
+              "maxChars": 50
+            },
+            "description": {
+              "required": false,
+              "example": "Find answers to common questions about our products and services",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Help",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "faqRules": {
+            "faqs": {
+              "required": true,
+              "minItems": 1,
+              "example": "[{\"id\": \"1\", \"title\": \"What is your return policy?\", \"content\": \"We offer a 30-day money-back guarantee.\"}]",
+              "note": "Array of FAQ items. Each item requires unique id, title (question), and content (answer with HTML support)."
+            },
+            "animationType": {
+              "required": false,
+              "default": "smooth",
+              "options": ["smooth", "instant"],
+              "note": "Animation type for accordion open/close. 'smooth' uses height transition, 'instant' shows/hides immediately."
+            },
+            "mediaPosition": {
+              "required": false,
+              "default": "left",
+              "options": ["left", "right"],
+              "note": "Position of media relative to FAQ list."
+            }
+          },
+          "mediaRules": {
+            "imageSrc": {
+              "required": false,
+              "note": "Path to image file. Either imageSrc or videoSrc should be provided."
+            },
+            "videoSrc": {
+              "required": false,
+              "note": "Path to video file. Either imageSrc or videoSrc should be provided."
+            }
+          }
+        },
+        "propsSchema": {
+          "faqs": "FaqItem[] (FaqItem: {id: string, title: string, content: string})",
+          "imageSrc?": "string",
+          "videoSrc?": "string",
+          "imageAlt?": "string (default: '')",
+          "videoAriaLabel?": "string (default: 'FAQ section video')",
+          "mediaPosition?": "'left' | 'right' (default: 'left')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "animationType?": "'smooth' | 'instant' (default: 'smooth')",
+          "showCard?": "boolean (default: true)",
+          "ariaLabel?": "string (default: 'FAQ section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string",
+          "contentClassName?": "string",
+          "mediaWrapperClassName?": "string",
+          "mediaClassName?": "string",
+          "faqsContainerClassName?": "string",
+          "accordionClassName?": "string",
+          "accordionTitleClassName?": "string",
+          "accordionIconContainerClassName?": "string",
+          "accordionIconClassName?": "string",
+          "accordionContentClassName?": "string",
+          "separatorClassName?": "string"
+        },
+        "usage": "<FaqSplitMedia faqs={[{id: '1', title: 'What is your return policy?', content: 'We offer a 30-day money-back guarantee on all our products.'}, {id: '2', title: 'How long does shipping take?', content: 'Standard shipping typically takes 5-7 business days.'}]} imageSrc=\"/images/faq-hero.jpg\" imageAlt=\"Customer support representative\" title=\"Frequently Asked Questions\" mediaPosition=\"left\" />"
+      },
+      {
+        "import": "import FaqSplitText from '@/components/sections/faq/FaqSplitText';",
+        "name": "FaqSplitText",
+        "path": "@/components/sections/faq/FaqSplitText",
+        "description": "FAQ section with split layout featuring animated text on one side and accordion list on the other.",
+        "details": "Use for displaying FAQs with a prominent title and optional description. Layout: Animated Title + Description (2/5 width) | Accordions (3/5 width). Text can be positioned left or right via textPosition prop. Text animations are controlled by ThemeProvider's defaultTextAnimation. Only one accordion item can be open at a time. Supports two animation types for accordions: 'smooth' (height transition) and 'instant' (immediate show/hide). Each FAQ requires unique id, title (question), and content (answer with HTML support). Best for FAQ pages with emphasis on section branding or when media isn't needed.",
+        "constraints": {
+          "textRules": {
+            "sideTitle": {
+              "required": true,
+              "example": "Frequently Asked Questions",
+              "minChars": 2,
+              "maxChars": 100
+            },
+            "sideDescription": {
+              "required": false,
+              "example": "Everything you need to know",
+              "minChars": 5,
+              "maxChars": 250
+            }
+          },
+          "faqRules": {
+            "faqs": {
+              "required": true,
+              "minItems": 1,
+              "example": "[{\"id\": \"1\", \"title\": \"What is your return policy?\", \"content\": \"We offer a 30-day money-back guarantee.\"}]",
+              "note": "Array of FAQ items. Each item requires unique id, title (question), and content (answer with HTML support)."
+            },
+            "animationType": {
+              "required": false,
+              "default": "smooth",
+              "options": ["smooth", "instant"],
+              "note": "Animation type for accordion open/close. 'smooth' uses height transition, 'instant' shows/hides immediately."
+            },
+            "textPosition": {
+              "required": false,
+              "default": "left",
+              "options": ["left", "right"],
+              "note": "Position of title/description text relative to FAQ list."
+            }
+          }
+        },
+        "propsSchema": {
+          "faqs": "FaqItem[] (FaqItem: {id: string, title: string, content: string})",
+          "sideTitle": "string",
+          "sideDescription?": "string",
+          "buttons?": "ButtonConfig[]",
+          "textPosition?": "'left' | 'right' (default: 'left')",
+          "animationType?": "'smooth' | 'instant' (default: 'smooth')",
+          "showCard?": "boolean (default: true)",
+          "ariaLabel?": "string (default: 'FAQ section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "contentClassName?": "string",
+          "textContainerClassName?": "string",
+          "sideTitleClassName?": "string",
+          "sideDescriptionClassName?": "string",
+          "buttonContainerClassName?": "string",
+          "buttonClassName?": "string",
+          "buttonTextClassName?": "string",
+          "faqsContainerClassName?": "string",
+          "accordionClassName?": "string",
+          "accordionTitleClassName?": "string",
+          "accordionIconContainerClassName?": "string",
+          "accordionIconClassName?": "string",
+          "accordionContentClassName?": "string",
+          "separatorClassName?": "string"
+        },
+        "usage": "<FaqSplitText faqs={[{id: '1', title: 'How can I be part of Buenro?', content: 'You can join by signing up on our platform.'}, {id: '2', title: 'Can anyone join Buenro?', content: 'Yes! We welcome remote workers and entrepreneurs.'}]} sideTitle=\"Frequently Asked Questions\" textPosition=\"left\" />"
+      }
+    ],
+    "blog": [
+      {
+        "import": "import BlogCardOne from '@/components/sections/blog/BlogCardOne';",
+        "name": "BlogCardOne",
+        "path": "@/components/sections/blog/BlogCardOne",
+        "description": "Blog section with card grid/carousel layout featuring image, category, title, excerpt, and author info.",
+        "details": "Use for displaying blog posts or articles. Uses CardStack for adaptive layout (grid for 1-4 items, carousel for 5+). Card structure: Image with overlay arrow button → Category badge → Title → Excerpt → Author (avatar + name + date). Image has zoom effect on hover. Category displayed in primary-button badge. Optional header with title, description, tag, and buttons via CardStack. Best for blog pages, news sections, or article listings.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Latest Articles",
+              "minChars": 2,
+              "maxChars": 50
+            },
+            "description": {
+              "required": false,
+              "example": "Insights and updates from our team",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Blog",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "blogRules": {
+            "blogs": {
+              "required": true,
+              "minItems": 1,
+              "example": "[{\"id\": \"1\", \"category\": \"Design\", \"title\": \"UX review presentations\", \"excerpt\": \"How to create compelling presentations\", \"imageSrc\": \"/blog-1.jpg\", \"authorName\": \"John Doe\", \"authorAvatar\": \"/avatar-1.jpg\", \"date\": \"20 Jan 2025\"}]",
+              "note": "Array of blog items. Each item requires id, category, title, excerpt, imageSrc, authorName, authorAvatar, and date."
+            }
+          }
+        },
+        "propsSchema": {
+          "blogs": "BlogCard[] (BlogCard: {id: string, category: string, title: string, excerpt: string, imageSrc: string, imageAlt?: string, authorName: string, authorAvatar: string, date: string, onBlogClick?: () => void})",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Blog section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "imageWrapperClassName?": "string",
+          "imageClassName?": "string",
+          "categoryClassName?": "string",
+          "cardTitleClassName?": "string",
+          "excerptClassName?": "string",
+          "authorContainerClassName?": "string",
+          "authorAvatarClassName?": "string",
+          "authorNameClassName?": "string",
+          "dateClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string"
+        },
+        "usage": "<BlogCardOne blogs={[{id: '1', category: 'Design', title: 'UX review presentations', excerpt: 'How to create compelling presentations that wow your audience', imageSrc: '/blog-1.jpg', authorName: 'Olivia Rhye', authorAvatar: '/avatar-1.jpg', date: '20 Jan 2025', onBlogClick: () => console.log('clicked')}]} title=\"Latest Articles\" carouselMode=\"buttons\" />"
+      },
+      {
+        "import": "import BlogCardTwo from '@/components/sections/blog/BlogCardTwo';",
+        "name": "BlogCardTwo",
+        "path": "@/components/sections/blog/BlogCardTwo",
+        "description": "Blog section with card grid/carousel layout featuring image, author/date, title, excerpt, and multiple tags.",
+        "details": "Use for displaying blog posts with tag categorization. Uses CardStack for adaptive layout (grid for 1-4 items, carousel for 5+). Card structure: Image with overlay arrow button → Author & Date → Title → Excerpt → Tags (multiple primary buttons). Image has zoom effect on hover. Tags displayed as primary-button badges at bottom. Optional header with title, description, tag, and buttons via CardStack. Best for blog pages with multiple categories or topic filtering.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": false,
+              "example": "Latest Articles",
+              "minChars": 2,
+              "maxChars": 50
+            },
+            "description": {
+              "required": false,
+              "example": "Insights and updates from our team",
+              "minChars": 5,
+              "maxChars": 250
+            },
+            "tag": {
+              "required": false,
+              "example": "Blog",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "blogRules": {
+            "blogs": {
+              "required": true,
+              "minItems": 1,
+              "example": "[{\"id\": \"1\", \"tags\": [\"Design\", \"Research\"], \"title\": \"UX review presentations\", \"excerpt\": \"How to create compelling presentations\", \"imageSrc\": \"/blog-1.jpg\", \"authorName\": \"Olivia Rhye\", \"date\": \"20 Jan 2025\"}]",
+              "note": "Array of blog items. Each item requires id, tags (array), title, excerpt, imageSrc, authorName, and date."
+            }
+          }
+        },
+        "propsSchema": {
+          "blogs": "BlogCard[] (BlogCard: {id: string, tags: string[], title: string, excerpt: string, imageSrc: string, imageAlt?: string, authorName: string, date: string, onBlogClick?: () => void})",
+          "carouselMode?": "'auto' | 'buttons' (default: 'buttons')",
+          "title?": "string",
+          "description?": "string",
+          "tag?": "string",
+          "tagIcon?": "LucideIcon",
+          "buttons?": "ButtonConfig[]",
+          "layout?": "'default' | 'split' (default: 'default')",
+          "ariaLabel?": "string (default: 'Blog section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "cardClassName?": "string",
+          "imageWrapperClassName?": "string",
+          "imageClassName?": "string",
+          "authorDateClassName?": "string",
+          "cardTitleClassName?": "string",
+          "excerptClassName?": "string",
+          "tagsContainerClassName?": "string",
+          "tagClassName?": "string",
+          "textBoxTitleClassName?": "string",
+          "textBoxDescriptionClassName?": "string",
+          "gridClassName?": "string",
+          "carouselClassName?": "string",
+          "controlsClassName?": "string",
+          "textBoxClassName?": "string",
+          "textBoxTagClassName?": "string",
+          "textBoxButtonContainerClassName?": "string",
+          "textBoxButtonClassName?": "string",
+          "textBoxButtonTextClassName?": "string"
+        },
+        "usage": "<BlogCardTwo blogs={[{id: '1', tags: ['Design', 'Research', 'Presentation'], title: 'UX review presentations', excerpt: 'How to create compelling presentations that wow your audience', imageSrc: '/blog-1.jpg', authorName: 'Olivia Rhye', date: '20 Jan 2025', onBlogClick: () => console.log('clicked')}]} title=\"Latest Articles\" carouselMode=\"buttons\" />"
+      }
+    ],
+    "contact": [
+      {
+        "import": "import ContactCenter from '@/components/sections/contact/ContactCenter';",
+        "name": "ContactCenter",
+        "path": "@/components/sections/contact/ContactCenter",
+        "description": "Centered contact section with tag, animated title and description, email signup form, and terms text.",
+        "details": "Use for newsletter signups, contact forms, or email capture. Features centered layout with tag (with optional icon), animated title and description using ThemeProvider's defaultTextAnimation, EmailSignupForm component, and customizable terms text. Content is placed in a card container with rounded-theme-capped styling. Ideal for prominently placed contact/signup sections with strong visual emphasis.",
+        "constraints": {
+          "textRules": {
+            "tag": {
+              "required": true,
+              "example": "Newsletter",
+              "minChars": 2,
+              "maxChars": 20
+            },
+            "title": {
+              "required": true,
+              "example": "Medium length heading goes here",
+              "minChars": 4,
+              "maxChars": 50
+            },
+            "description": {
+              "required": true,
+              "example": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+              "minChars": 20,
+              "maxChars": 200
+            },
+            "inputPlaceholder": {
+              "required": false,
+              "default": "Enter your email",
+              "example": "Your email address",
+              "minChars": 5,
+              "maxChars": 30
+            },
+            "buttonText": {
+              "required": false,
+              "default": "Sign Up",
+              "example": "Subscribe",
+              "minChars": 2,
+              "maxChars": 15
+            },
+            "termsText": {
+              "required": false,
+              "default": "By clicking Sign Up you're confirming that you agree with our Terms and Conditions.",
+              "example": "We respect your privacy. Unsubscribe at any time.",
+              "minChars": 10,
+              "maxChars": 150
+            }
+          }
+        },
+        "propsSchema": {
+          "tag": "string",
+          "title": "string",
+          "description": "string",
+          "tagIcon?": "LucideIcon",
+          "inputPlaceholder?": "string (default: 'Enter your email')",
+          "buttonText?": "string (default: 'Sign Up')",
+          "termsText?": "string (default: 'By clicking Sign Up you're confirming that you agree with our Terms and Conditions.')",
+          "onSubmit?": "(email: string) => void",
+          "ariaLabel?": "string (default: 'Contact section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "contentClassName?": "string",
+          "tagClassName?": "string",
+          "titleClassName?": "string",
+          "descriptionClassName?": "string",
+          "formClassName?": "string",
+          "inputClassName?": "string",
+          "buttonClassName?": "string",
+          "buttonTextClassName?": "string",
+          "termsClassName?": "string"
+        },
+        "usage": "// Wrap in ThemeProvider\n<ThemeProvider defaultButtonVariant=\"text-stagger\" defaultTextAnimation=\"entrance-slide\" borderRadius=\"rounded\">\n  <ContactCenter tag=\"Newsletter\" title=\"Stay updated with our latest news\" description=\"Subscribe to our newsletter for weekly updates and exclusive content.\" onSubmit={(email) => console.log(email)} />\n</ThemeProvider>"
+      },
+      {
+        "import": "import ContactSplit from '@/components/sections/contact/ContactSplit';",
+        "name": "ContactSplit",
+        "path": "@/components/sections/contact/ContactSplit",
+        "description": "Split layout contact section with tag, animated title and description on one side, media content on the other, and email signup form.",
+        "details": "Use for newsletter signups or email capture with visual context. Features split layout with ContactForm (tag with optional icon, animated title and description, EmailSignupForm) on one side and image or video media on the other. Form is placed in a card with constrained width on larger screens. Media can be positioned left or right. Media uses fixed height on desktop. Ideal for contact sections that benefit from visual storytelling alongside the signup form.",
+        "constraints": {
+          "textRules": {
+            "tag": {
+              "required": true,
+              "example": "Newsletter",
+              "minChars": 2,
+              "maxChars": 20
+            },
+            "title": {
+              "required": true,
+              "example": "Medium length heading goes here",
+              "minChars": 4,
+              "maxChars": 50
+            },
+            "description": {
+              "required": true,
+              "example": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+              "minChars": 20,
+              "maxChars": 200
+            },
+            "inputPlaceholder": {
+              "required": false,
+              "default": "Enter your email",
+              "example": "Your email address",
+              "minChars": 5,
+              "maxChars": 30
+            },
+            "buttonText": {
+              "required": false,
+              "default": "Sign Up",
+              "example": "Subscribe",
+              "minChars": 2,
+              "maxChars": 15
+            },
+            "termsText": {
+              "required": false,
+              "default": "By clicking Sign Up you're confirming that you agree with our Terms and Conditions.",
+              "example": "We respect your privacy. Unsubscribe at any time.",
+              "minChars": 10,
+              "maxChars": 150
+            }
+          }
+        },
+        "propsSchema": {
+          "tag": "string",
+          "title": "string",
+          "description": "string",
+          "imageSrc?": "string",
+          "videoSrc?": "string",
+          "imageAlt?": "string (default: '')",
+          "videoAriaLabel?": "string (default: 'Contact section video')",
+          "mediaPosition?": "'left' | 'right' (default: 'right')",
+          "tagIcon?": "LucideIcon",
+          "inputPlaceholder?": "string (default: 'Enter your email')",
+          "buttonText?": "string (default: 'Sign Up')",
+          "termsText?": "string (default: 'By clicking Sign Up you're confirming that you agree with our Terms and Conditions.')",
+          "onSubmit?": "(email: string) => void",
+          "ariaLabel?": "string (default: 'Contact section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "contentClassName?": "string",
+          "cardClassName?": "string",
+          "contactFormClassName?": "string",
+          "tagClassName?": "string",
+          "titleClassName?": "string",
+          "descriptionClassName?": "string",
+          "formClassName?": "string",
+          "formWrapperClassName?": "string",
+          "inputClassName?": "string",
+          "buttonClassName?": "string",
+          "buttonTextClassName?": "string",
+          "termsClassName?": "string",
+          "mediaWrapperClassName?": "string",
+          "mediaClassName?": "string"
+        },
+        "usage": "// Wrap in ThemeProvider\n<ThemeProvider defaultButtonVariant=\"text-stagger\" defaultTextAnimation=\"entrance-slide\" borderRadius=\"rounded\">\n  <ContactSplit tag=\"Newsletter\" title=\"Stay updated\" description=\"Subscribe to our newsletter for weekly updates and exclusive content.\" imageSrc=\"/placeholders/placeholder-16-9.svg\" onSubmit={(email) => console.log(email)} />\n</ThemeProvider>"
+      },
+      {
+        "import": "import ContactCenterForm from '@/components/sections/contact/ContactCenterForm';",
+        "name": "ContactCenterForm",
+        "path": "@/components/sections/contact/ContactCenterForm",
+        "description": "Centered contact form section with animated title and description, dynamic input fields, optional textarea, and submit button.",
+        "details": "Use for full contact forms with custom fields (name, email, message, etc.). Features centered layout with animated title and description using ThemeProvider's defaultTextAnimation, dynamic input fields array (minimum 2 required), optional textarea, and submit button. All form inputs use secondary-button styling with rounded-theme borders. Form is placed in a large card container. Returns Record<string, string> with all field values on submit. Ideal for contact pages requiring multiple user inputs beyond just email.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": true,
+              "example": "Medium length heading goes here",
+              "minChars": 4,
+              "maxChars": 50
+            },
+            "description": {
+              "required": true,
+              "example": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+              "minChars": 20,
+              "maxChars": 200
+            },
+            "buttonText": {
+              "required": false,
+              "default": "Submit",
+              "example": "Send Message",
+              "minChars": 2,
+              "maxChars": 15
+            }
+          }
+        },
+        "propsSchema": {
+          "title": "string",
+          "description": "string",
+          "inputs": "InputField[] (min 2 required)",
+          "textarea?": "TextareaField",
+          "buttonText?": "string (default: 'Submit')",
+          "onSubmit?": "(data: Record<string, string>) => void",
+          "ariaLabel?": "string (default: 'Contact section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "contentClassName?": "string",
+          "titleClassName?": "string",
+          "descriptionClassName?": "string",
+          "buttonClassName?": "string",
+          "buttonTextClassName?": "string"
+        },
+        "usage": "// Wrap in ThemeProvider\n<ThemeProvider defaultButtonVariant=\"text-stagger\" defaultTextAnimation=\"entrance-slide\" borderRadius=\"rounded\">\n  <ContactCenterForm title=\"Contact us\" description=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\" inputs={[{ name: 'name', type: 'text', placeholder: 'Name', required: true }, { name: 'email', type: 'email', placeholder: 'Email', required: true }]} textarea={{ name: 'message', placeholder: 'Type your message...', rows: 5, required: true }} onSubmit={(data) => console.log(data)} />\n</ThemeProvider>"
+      },
+      {
+        "import": "import ContactSplitForm from '@/components/sections/contact/ContactSplitForm';",
+        "name": "ContactSplitForm",
+        "path": "@/components/sections/contact/ContactSplitForm",
+        "description": "Split layout contact form with animated title and description, dynamic input fields, optional textarea, submit button, and media content.",
+        "details": "Use for full contact forms with visual context. Features split layout with form (animated title and description, dynamic input fields array with minimum 2 required, optional textarea, submit button) on one side and image or video media on the other. All form inputs use secondary-button styling with rounded-theme borders. Media can be positioned left or right. On mobile, media displays with natural aspect ratio; on desktop, uses absolute positioning to match form height. Returns Record<string, string> with all field values on submit. Ideal for contact pages that combine detailed forms with visual storytelling.",
+        "constraints": {
+          "textRules": {
+            "title": {
+              "required": true,
+              "example": "Medium length heading goes here",
+              "minChars": 4,
+              "maxChars": 50
+            },
+            "description": {
+              "required": true,
+              "example": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+              "minChars": 20,
+              "maxChars": 200
+            },
+            "buttonText": {
+              "required": false,
+              "default": "Submit",
+              "example": "Send Message",
+              "minChars": 2,
+              "maxChars": 15
+            }
+          }
+        },
+        "propsSchema": {
+          "title": "string",
+          "description": "string",
+          "inputs": "InputField[] (min 2 required)",
+          "textarea?": "TextareaField",
+          "imageSrc?": "string",
+          "videoSrc?": "string",
+          "imageAlt?": "string (default: '')",
+          "videoAriaLabel?": "string (default: 'Contact section video')",
+          "mediaPosition?": "'left' | 'right' (default: 'right')",
+          "buttonText?": "string (default: 'Submit')",
+          "onSubmit?": "(data: Record<string, string>) => void",
+          "ariaLabel?": "string (default: 'Contact section')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "contentClassName?": "string",
+          "formCardClassName?": "string",
+          "titleClassName?": "string",
+          "descriptionClassName?": "string",
+          "buttonClassName?": "string",
+          "buttonTextClassName?": "string",
+          "mediaWrapperClassName?": "string",
+          "mediaClassName?": "string"
+        },
+        "usage": "// Wrap in ThemeProvider\n<ThemeProvider defaultButtonVariant=\"text-stagger\" defaultTextAnimation=\"entrance-slide\" borderRadius=\"rounded\">\n  <ContactSplitForm title=\"Get in touch\" description=\"We'd love to hear from you. Send us a message.\" inputs={[{ name: 'name', type: 'text', placeholder: 'Name', required: true }, { name: 'email', type: 'email', placeholder: 'Email', required: true }]} textarea={{ name: 'message', placeholder: 'Type your message...', rows: 5, required: true }} imageSrc=\"/placeholders/placeholder-16-9.svg\" onSubmit={(data) => console.log(data)} />\n</ThemeProvider>"
+      }
+    ],
+    "footer": [
+      {
+        "import": "import FooterBase from '@/components/sections/footer/FooterBase';",
+        "name": "FooterBase",
+        "path": "@/components/sections/footer/FooterBase",
+        "description": "Classic footer with logo, multi-column navigation, copyright text, and privacy policy link.",
+        "details": "Use for standard website footers with organized navigation. Features logo on left, flexible column layout for navigation links, copyright text, and privacy policy button. All links use ButtonTextUnderline component. Footer uses primary-button background with text-background color scheme.",
+        "constraints": {
+          "textRules": {
+            "copyrightText": {
+              "required": false,
+              "default": "© 2025 | Webild",
+              "example": "© 2025 Company Name",
+              "minChars": 5,
+              "maxChars": 50
+            },
+            "columnTitle": {
+              "required": true,
+              "example": "Product",
+              "minChars": 2,
+              "maxChars": 20
+            },
+            "itemLabel": {
+              "required": true,
+              "example": "Features",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "structureRules": {
+            "columns": {
+              "required": true,
+              "minColumns": 1,
+              "note": "Each column must have title and items array"
+            },
+            "items": {
+              "required": true,
+              "minItems": 1,
+              "structure": {
+                "label": "string - Link text (required)",
+                "href": "string - Link destination (optional). External URLs (https://, http://, www.) open in new tab. Internal values (e.g., 'about', 'contact') scroll to #about, #contact sections",
+                "onClick": "() => void - Additional click handler (optional)"
+              }
+            }
+          }
+        },
+        "propsSchema": {
+          "columns": "FooterColumn[] (required)",
+          "logoSrc?": "string (default: '/brand/logowhite.svg')",
+          "logoWidth?": "number (default: 120)",
+          "logoHeight?": "number (default: 40)",
+          "copyrightText?": "string (default: '© 2025 | Webild')",
+          "onPrivacyClick?": "() => void",
+          "ariaLabel?": "string (default: 'Site footer')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "logoClassName?": "string",
+          "columnsClassName?": "string",
+          "columnClassName?": "string",
+          "columnTitleClassName?": "string",
+          "columnItemClassName?": "string",
+          "copyrightContainerClassName?": "string",
+          "copyrightTextClassName?": "string",
+          "privacyButtonClassName?": "string"
+        },
+        "usage": "<FooterBase columns={[{ title: 'Product', items: [{ label: 'Features', href: 'features' }, { label: 'Pricing', href: 'pricing' }] }]} copyrightText=\"© 2025 | Company\" onPrivacyClick={() => console.log('Privacy clicked')} />"
+      },
+      {
+        "import": "import FooterBaseReveal from '@/components/sections/footer/FooterBaseReveal';",
+        "name": "FooterBaseReveal",
+        "path": "@/components/sections/footer/FooterBaseReveal",
+        "description": "Animated footer reveal wrapper that creates a fixed footer with scroll-triggered reveal effect.",
+        "details": "Use when you want the footer to stay fixed at the bottom and reveal as users scroll. Wraps FooterBase component with fixed positioning and dynamic height calculation using ResizeObserver. Creates a reveal animation effect as content scrolls up. Ideal for modern, engaging scroll experiences.",
+        "constraints": {
+          "textRules": {
+            "copyrightText": {
+              "required": false,
+              "default": "© 2025 | Webild",
+              "example": "© 2025 Company Name",
+              "minChars": 5,
+              "maxChars": 50
+            },
+            "columnTitle": {
+              "required": true,
+              "example": "Product",
+              "minChars": 2,
+              "maxChars": 20
+            },
+            "itemLabel": {
+              "required": true,
+              "example": "Features",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "structureRules": {
+            "columns": {
+              "required": true,
+              "minColumns": 1,
+              "note": "Each column must have title and items array"
+            },
+            "items": {
+              "required": true,
+              "minItems": 1,
+              "structure": {
+                "label": "string - Link text (required)",
+                "href": "string - Link destination (optional). External URLs open in new tab, internal values scroll to sections",
+                "onClick": "() => void - Additional click handler (optional)"
+              }
+            }
+          }
+        },
+        "propsSchema": {
+          "columns": "FooterColumn[] (required)",
+          "logoSrc?": "string",
+          "logoWidth?": "number",
+          "logoHeight?": "number",
+          "copyrightText?": "string",
+          "onPrivacyClick?": "() => void",
+          "ariaLabel?": "string",
+          "className?": "string",
+          "wrapperClassName?": "string",
+          "containerClassName?": "string",
+          "footerClassName?": "string",
+          "footerContainerClassName?": "string",
+          "logoClassName?": "string",
+          "columnsClassName?": "string",
+          "columnClassName?": "string",
+          "columnTitleClassName?": "string",
+          "columnItemClassName?": "string",
+          "copyrightContainerClassName?": "string",
+          "copyrightTextClassName?": "string",
+          "privacyButtonClassName?": "string"
+        },
+        "usage": "<FooterBaseReveal columns={[{ title: 'Product', items: [{ label: 'Features', href: 'features' }, { label: 'Pricing', href: 'pricing' }] }]} copyrightText=\"© 2025 | Company\" />"
+      },
+      {
+        "import": "import FooterLogoEmphasis from '@/components/sections/footer/FooterLogoEmphasis';",
+        "name": "FooterLogoEmphasis",
+        "path": "@/components/sections/footer/FooterLogoEmphasis",
+        "description": "Footer with prominent centered logo emphasis and grid-based navigation layout with chevron icons.",
+        "details": "Use when logo branding is primary focus in footer. Features large centered logo at top (image or SVG text), followed by responsive grid of navigation links (1-5 columns max) with ChevronRight icons. Grid columns automatically adjust based on number of column arrays provided. No column titles - just clean link lists. Uses primary-button background with rounded-t-theme-capped styling.",
+        "constraints": {
+          "textRules": {
+            "logoText": {
+              "required": false,
+              "default": "Webild",
+              "example": "Company Name",
+              "minChars": 2,
+              "maxChars": 30
+            },
+            "itemLabel": {
+              "required": true,
+              "example": "Features",
+              "minChars": 2,
+              "maxChars": 30
+            }
+          },
+          "structureRules": {
+            "columns": {
+              "required": true,
+              "minColumns": 1,
+              "maxColumns": 5,
+              "note": "Grid automatically adjusts from 1-5 columns based on array length"
+            },
+            "items": {
+              "required": true,
+              "minItems": 1,
+              "structure": {
+                "label": "string - Link text (required)",
+                "href": "string - Link destination (optional). External URLs open in new tab, internal values scroll to sections",
+                "onClick": "() => void - Additional click handler (optional)"
+              }
+            },
+            "logo": {
+              "note": "Either logoSrc (image) or logoText (SVG) can be used. If logoSrc provided, it takes precedence"
+            }
+          }
+        },
+        "propsSchema": {
+          "columns": "FooterColumn[] (required, max 5)",
+          "logoSrc?": "string",
+          "logoAlt?": "string (default: 'Logo')",
+          "logoText?": "string (default: 'Webild')",
+          "ariaLabel?": "string (default: 'Site footer')",
+          "className?": "string",
+          "containerClassName?": "string",
+          "logoClassName?": "string",
+          "columnsClassName?": "string",
+          "columnClassName?": "string",
+          "itemClassName?": "string",
+          "iconClassName?": "string",
+          "buttonClassName?": "string"
+        },
+        "usage": "<FooterLogoEmphasis columns={[{ items: [{ label: 'Features', href: 'features' }] }, { items: [{ label: 'About', href: 'about' }] }]} logoText=\"Company\" />"
+      }
+    ]
+  }
+}

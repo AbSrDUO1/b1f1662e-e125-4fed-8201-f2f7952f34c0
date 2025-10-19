@@ -1,0 +1,276 @@
+{
+  "lightTheme": {
+    "default": {
+      "--background": "#ffffff",
+      "--card": "#ffffff",
+      "--foreground": "#000000e6",
+      "--primary-cta": "#1a1a1a",
+      "--secondary-cta": "#ffffff",
+      "--accent": "#5a71e6",
+      "--background-accent": "#1a1a1a"
+    },
+    "lightBlue": {
+      "--background": "#f8fcff",
+      "--card": "#ffffff",
+      "--foreground": "#00101f",
+      "--primary-cta": "#409fff",
+      "--secondary-cta": "#ffffff",
+      "--accent": "#7cbdff",
+      "--background-accent": "#409fff"
+    },
+    "darkBlue": {
+      "--background": "#f5faff",
+      "--card": "#f1f8ff",
+      "--foreground": "#001122",
+      "--primary-cta": "#15479c",
+      "--secondary-cta": "#ffffff",
+      "--accent": "#0059b3",
+      "--background-accent": "#15479c"
+    },
+    "lightGreen": {
+      "--background": "#000802",
+      "--card": "#0b1a0b",
+      "--foreground": "#e6ffe6",
+      "--primary-cta": "#62f58e",
+      "--secondary-cta": "#07170b",
+      "--accent": "#7ff09d",
+      "--background-accent": "#2c6541"
+    },
+    "darkGreen": {
+      "--background": "#fafffb",
+      "--card": "#f7fffa",
+      "--foreground": "#001a0a",
+      "--primary-cta": "#0a7039",
+      "--secondary-cta": "#ffffff",
+      "--accent": "#0d8f47",
+      "--background-accent": "#0a7039"
+    },
+    "lightRed": {
+      "--background": "#fffafa",
+      "--card": "#fff7f7",
+      "--foreground": "#1a0000",
+      "--primary-cta": "#e63946",
+      "--secondary-cta": "#ffffff",
+      "--accent": "#ff4d5a",
+      "--background-accent": "#e63946"
+    },
+    "darkRed": {
+      "--background": "#fffcfc",
+      "--card": "#fffafa",
+      "--foreground": "#220000",
+      "--primary-cta": "#c1121f",
+      "--secondary-cta": "#ffffff",
+      "--accent": "#e63946",
+      "--background-accent": "#c1121f"
+    },
+    "lightPurple": {
+      "--background": "#fbfaff",
+      "--card": "#f7f5ff",
+      "--foreground": "#0f0022",
+      "--primary-cta": "#8b5cf6",
+      "--secondary-cta": "#ffffff",
+      "--accent": "#a78bfa",
+      "--background-accent": "#8b5cf6"
+    },
+    "darkPurple": {
+      "--background": "#fcfcff",
+      "--card": "#fafaff",
+      "--foreground": "#150022",
+      "--primary-cta": "#7c3aed",
+      "--secondary-cta": "#ffffff",
+      "--accent": "#8b5cf6",
+      "--background-accent": "#7c3aed"
+    },
+    "lightOrange": {
+      "--background": "#fffaf5",
+      "--card": "#fff7f0",
+      "--foreground": "#1a0800",
+      "--primary-cta": "#ff8c42",
+      "--secondary-cta": "#ffffff",
+      "--accent": "#ffaa70",
+      "--background-accent": "#ff8c42"
+    },
+    "darkOrange": {
+      "--background": "#fffcfa",
+      "--card": "#fffaf7",
+      "--foreground": "#220a00",
+      "--primary-cta": "#e8590c",
+      "--secondary-cta": "#ffffff",
+      "--accent": "#ff8c42",
+      "--background-accent": "#e8590c"
+    },
+    "lightCyan": {
+      "--background": "#fafefe",
+      "--card": "#f0feff",
+      "--foreground": "#001a1a",
+      "--primary-cta": "#16d4f6",
+      "--secondary-cta": "#ffffff",
+      "--accent": "#22d3ee",
+      "--background-accent": "#06b6d4"
+    },
+    "darkCyan": {
+      "--background": "#faffff",
+      "--card": "#f7feff",
+      "--foreground": "#00171a",
+      "--primary-cta": "#00c9e8",
+      "--secondary-cta": "#ffffff",
+      "--accent": "#06b6d4",
+      "--background-accent": "#0891b2"
+    },
+    "lightYellow": {
+      "--background": "#fefef5",
+      "--card": "#fdfdf0",
+      "--foreground": "#1a1a00",
+      "--primary-cta": "#ffcf40",
+      "--secondary-cta": "#ffffff",
+      "--accent": "#facc15",
+      "--background-accent": "#ffbf00"
+    },
+    "darkYellow": {
+      "--background": "#fffef7",
+      "--card": "#fffdf0",
+      "--foreground": "#221a00",
+      "--primary-cta": "#ffae00",
+      "--secondary-cta": "#ffffff",
+      "--accent": "#eab308",
+      "--background-accent": "#ca8a04"
+    }
+  },
+  "darkTheme": {
+    "default": {
+      "--background": "#0a0a0a",
+      "--card": "#1a1a1a",
+      "--foreground": "#ffffffe6",
+      "--primary-cta": "#e6e6e6",
+      "--secondary-cta": "#1a1a1a",
+      "--accent": "#5a71e6",
+      "--background-accent": "#5a71e6"
+    },
+    "lightBlue": {
+      "--background": "#010912",
+      "--card": "#152840",
+      "--foreground": "#e6f0ff",
+      "--primary-cta": "#cee7ff",
+      "--secondary-cta": "#0e1a29",
+      "--accent": "#80bfff",
+      "--background-accent": "#004a93"
+    },
+    "darkBlue": {
+      "--background": "#00070e",
+      "--card": "#152840",
+      "--foreground": "#e6f0ff",
+      "--primary-cta": "#3891f6",
+      "--secondary-cta": "#0e1a29",
+      "--accent": "#80bfff",
+      "--background-accent": "#016ad3"
+    },
+    "lightGreen": {
+      "--background": "#000802",
+      "--card": "#0b1a0b",
+      "--foreground": "#e6ffe6",
+      "--primary-cta": "#80da9b",
+      "--secondary-cta": "#07170b",
+      "--accent": "#7ff09d",
+      "--background-accent": "#2c6541"
+    },
+    "darkGreen": {
+      "--background": "#000602",
+      "--card": "#0d1d0d",
+      "--foreground": "#e6ffe6",
+      "--primary-cta": "#1cde5d",
+      "--secondary-cta": "#0a1f0f",
+      "--accent": "#5dd882",
+      "--background-accent": "#0d6b32"
+    },
+    "lightRed": {
+      "--background": "#080000",
+      "--card": "#1e0d0d",
+      "--foreground": "#ffe6e6",
+      "--primary-cta": "#ff7a7a",
+      "--secondary-cta": "#1e0909",
+      "--accent": "#ff8a8a",
+      "--background-accent": "#65292c"
+    },
+    "darkRed": {
+      "--background": "#060000",
+      "--card": "#1d0d0d",
+      "--foreground": "#ffe6e6",
+      "--primary-cta": "#ff3d4a",
+      "--secondary-cta": "#1f0a0a",
+      "--accent": "#ff5c5c",
+      "--background-accent": "#b8111f"
+    },
+    "lightPurple": {
+      "--background": "#020008",
+      "--card": "#0b1a1d",
+      "--foreground": "#f0e6ff",
+      "--primary-cta": "#c89bff",
+      "--secondary-cta": "#0b0717",
+      "--accent": "#d4a3ff",
+      "--background-accent": "#65417c"
+    },
+    "darkPurple": {
+      "--background": "#020006",
+      "--card": "#1d0d1d",
+      "--foreground": "#f0e6ff",
+      "--primary-cta": "#b366ff",
+      "--secondary-cta": "#1a0a29",
+      "--accent": "#b58cff",
+      "--background-accent": "#6b28d9"
+    },
+    "lightOrange": {
+      "--background": "#080200",
+      "--card": "#1a0d0b",
+      "--foreground": "#ffe6d5",
+      "--primary-cta": "#ffaa70",
+      "--secondary-cta": "#170b07",
+      "--accent": "#ffc299",
+      "--background-accent": "#b8541e"
+    },
+    "darkOrange": {
+      "--background": "#060200",
+      "--card": "#1d0d0b",
+      "--foreground": "#ffe6d5",
+      "--primary-cta": "#ff8c42",
+      "--secondary-cta": "#1f0a00",
+      "--accent": "#ffaa70",
+      "--background-accent": "#b8400c"
+    },
+    "lightCyan": {
+      "--background": "#000808",
+      "--card": "#0b1a1d",
+      "--foreground": "#d5f5ff",
+      "--primary-cta": "#67e8f9",
+      "--secondary-cta": "#071719",
+      "--accent": "#a5f3fc",
+      "--background-accent": "#0e7490"
+    },
+    "darkCyan": {
+      "--background": "#000606",
+      "--card": "#0d1d1d",
+      "--foreground": "#d5f5ff",
+      "--primary-cta": "#22d3ee",
+      "--secondary-cta": "#0a1f1f",
+      "--accent": "#67e8f9",
+      "--background-accent": "#0891b2"
+    },
+    "lightYellow": {
+      "--background": "#080800",
+      "--card": "#1a1d0b",
+      "--foreground": "#fffde6",
+      "--primary-cta": "#fde047",
+      "--secondary-cta": "#17190b",
+      "--accent": "#fef08a",
+      "--background-accent": "#a16207"
+    },
+    "darkYellow": {
+      "--background": "#060600",
+      "--card": "#1d1d0b",
+      "--foreground": "#fffde6",
+      "--primary-cta": "#facc15",
+      "--secondary-cta": "#1f1f0a",
+      "--accent": "#fde047",
+      "--background-accent": "#854d0e"
+    }
+  }
+}
